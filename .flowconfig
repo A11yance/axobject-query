@@ -1,0 +1,8 @@
+[ignore]
+./lib/.*
+./docs/.*
+./reports/.*
+./node_modules/.*
+
+[libs]
+flow
