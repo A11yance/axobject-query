@@ -1,0 +1,1481 @@
+{
+  "AbbrRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "abbr"
+        }
+      }
+    ]
+  },
+  "AlertDialogRole": {
+    "type": "window",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "alertdialog"
+        }
+      }
+    ]
+  },
+  "AlertRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "alert"
+        }
+      }
+    ]
+  },
+  "AnnotationRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "ApplicationRole": {
+    "type": "window",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "application"
+        }
+      }
+    ]
+  },
+  "ArticleRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "article"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "article"
+        }
+      }
+    ]
+  },
+  "AudioRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": null
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "audio"
+        }
+    }]
+  },
+  "BannerRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "banner"
+        }
+      }
+    ]
+  },
+  "BlockquoteRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "blockquote"
+        }
+      }
+    ]
+  },
+  "BusyIndicatorRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "attributes": [
+            {
+            "name": "aria-busy",
+            "value": "true"
+          }]
+        }
+      }
+    ]
+  },
+  "ButtonRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "button"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "button"
+        }
+      }
+    ]
+  },
+  "CanvasRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "canvas"
+        }
+      }
+    ]
+  },
+  "CaptionRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "caption"
+        }
+      }
+    ]
+  },
+  "CellRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "cell"
+        }
+      },
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "gridcell"
+        }
+      },
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "td"
+        }
+      }
+    ]
+  },
+  "CheckBoxRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "checkbox"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+            "name": "type",
+            "value": "checkbox"
+          }]
+        }
+      }
+    ]
+  },
+  "ColorWellRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+            "name": "type",
+            "value": "color"
+          }]
+        }
+      }
+    ]
+  },
+  "ColumnHeaderRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "columnheader"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "th"
+        }
+      }
+    ]
+  },
+  "ColumnRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "ComboBoxRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "combobox"
+        }
+      }
+    ]
+  },
+  "ComplementaryRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "complementary"
+        }
+      }
+    ]
+  },
+  "ContentInfoRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "structureinfo"
+        }
+      }
+    ]
+  },
+  "DateRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+            "name": "type",
+            "value": "date"
+          }]
+        }
+      }
+    ]
+  },
+  "DateTimeRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+            "name": "type",
+            "value": "datetime"
+          }]
+        }
+      }
+    ]
+  },
+  "DefinitionRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "dfn"
+        }
+      }
+    ]
+  },
+  "DescriptionListDetailRole": {
+    "type": "structure",
+    "relatedConcepts": [{
+        "module": "HTML",
+        "concept": {
+          "name": "dd"
+        }
+      }
+    ]
+  },
+  "DescriptionListRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "dl"
+        }
+      }
+    ]
+  },
+  "DescriptionListTermRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "dt"
+        }
+      }
+    ]
+  },
+  "DetailsRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "details"
+        }
+      }
+    ]
+  },
+  "DialogRole": {
+    "type": "window",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "dialog"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "dialog"
+        }
+      }
+    ]
+  },
+  "DirectoryRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "directory"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "dir"
+        }
+      }
+    ]
+  },
+  "DisclosureTriangleRole": {
+    "type": "widget",
+    "relatedConcepts": []
+  },
+  "DivRole": {
+    "type": "generic",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": null
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "div"
+        }
+      }
+    ]
+  },
+  "DocumentRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "document"
+        }
+      }
+    ]
+  },
+  "EmbeddedObjectRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "embed"
+        }
+      }
+    ]
+  },
+  "FeedRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "feed"
+        }
+      }
+    ]
+  },
+  "FigcaptionRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "figcaption"
+        }
+      }
+    ]
+  },
+  "FigureRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "figure"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "figure"
+        }
+      }
+    ]
+  },
+  "FooterRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "footer"
+        }
+      }
+    ]
+  },
+  "FormRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "form"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "form"
+        }
+      }
+    ]
+  },
+  "GridRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "grid"
+        }
+      }
+    ]
+  },
+  "GroupRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "group"
+        }
+      }
+    ]
+  },
+  "HeadingRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "heading"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "h1"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "h2"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "h3"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "h4"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "h5"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "h6"
+        }
+      }
+    ]
+  },
+  "IframePresentationalRole": {
+    "type": "window",
+    "relatedConcepts": []
+  },
+  "IframeRole": {
+    "type": "window",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "iframe"
+        }
+      }
+    ]
+  },
+  "IgnoredRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "ImageMapLinkRole": {
+    "type": "widget",
+    "relatedConcepts": []
+  },
+  "ImageMapRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "img",
+          "attributes": [
+            {
+              "name": "usemap"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ImageRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "img"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "img"
+        }
+      }
+    ]
+  },
+  "InlineTextBoxRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "input"
+        }
+      }
+    ]
+  },
+  "InputTimeRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+              "name": "type",
+              "value": "time"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "LabelRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "label"
+        }
+      }
+    ]
+  },
+  "LegendRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "legend"
+        }
+      }
+    ]
+  },
+  "LineBreakRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "br"
+        }
+      }
+    ]
+  },
+  "LinkRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "link"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "a",
+          "attributes": [
+            {
+              "name": "href"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ListBoxOptionRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "option"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "option"
+        }
+      }
+    ]
+  },
+  "ListBoxRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "listbox"
+        }
+      }
+    ]
+  },
+  "ListItemRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "listitem"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "li"
+        }
+      }
+    ]
+  },
+  "ListMarkerRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "ListRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "list"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "ul"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "ol"
+        }
+      }
+    ]
+  },
+  "LogRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "log"
+        }
+      }
+    ]
+  },
+  "MainRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "main"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "main"
+        }
+      }
+    ]
+  },
+  "MarkRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "mark"
+        }
+      }
+    ]
+  },
+  "MarqueeRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "marquee"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "marquee"
+        }
+      }
+    ]
+  },
+  "MathRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "math"
+        }
+      }
+    ]
+  },
+  "MenuBarRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "menubar"
+        }
+      }
+    ]
+  },
+  "MenuButtonRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": null
+        }
+      }
+    ]
+  },
+  "MenuItemRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "menuitem"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "menuitem"
+        }
+      }
+    ]
+  },
+  "MenuItemCheckBoxRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "menuitemcheckbox"
+        }
+      }
+    ]
+  },
+  "MenuItemRadioRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "menuitemradio"
+        }
+      }
+    ]
+  },
+  "MenuListOptionRole": {
+    "type": "widget",
+    "relatedConcepts": []
+  },
+  "MenuListPopupRole": {
+    "type": "widget",
+    "relatedConcepts": []
+  },
+  "MenuRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "menu"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "menu"
+        }
+      }
+    ]
+  },
+  "MeterRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": null
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "meter"
+        }
+      }
+    ]
+  },
+  "NavigationRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "navigation"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "nav"
+        }
+      }
+    ]
+  },
+  "NoneRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "none"
+        }
+      }
+    ]
+  },
+  "NoteRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "note"
+        }
+      }
+    ]
+  },
+  "OutlineRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "ParagraphRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "p"
+        }
+      }
+    ]
+  },
+  "PopUpButtonRole": {
+    "type": "widget",
+    "relatedConcepts": []
+  },
+  "PreRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "pre"
+        }
+      }
+    ]
+  },
+  "PresentationalRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "presentation"
+        }
+      }
+    ]
+  },
+  "ProgressIndicatorRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "progressbar"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "progress"
+        }
+      }
+    ]
+  },
+  "RadioButtonRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "radio"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+              "name": "type",
+              "value": "radio"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "RadioGroupRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "radiogroup"
+        }
+      }
+    ]
+  },
+  "RegionRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "region"
+        }
+      }
+    ]
+  },
+  "RootWebAreaRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "RowHeaderRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "rowheader"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "th",
+          "attributes": [
+            {
+              "name": "scope",
+              "value": "row"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "RowRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "row"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "tr"
+        }
+      }
+    ]
+  },
+  "RubyRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "ruby"
+        }
+      }
+    ]
+  },
+  "RulerRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "ScrollAreaRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "ScrollBarRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "scrollbar"
+        }
+      }
+    ]
+  },
+  "SeamlessWebAreaRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "SearchRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "search"
+        }
+      }
+    ]
+  },
+  "SearchBoxRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "searchbox"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+              "name": "type",
+              "value": "search"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "SliderRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "slider"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+              "name": "type",
+              "value": "range"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "SliderThumbRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "SpinButtonRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "spinbutton"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+              "name": "type",
+              "value": "number"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "SpinButtonPartRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "SplitterRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "separator"
+        }
+      }
+    ]
+  },
+  "StaticTextRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "StatusRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "status"
+        }
+      }
+    ]
+  },
+  "SVGRootRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "SwitchRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "switch"
+        }
+      }
+    ]
+  },
+  "TabGroupRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "tablist"
+        }
+      }
+    ]
+  },
+  "TabRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "tab"
+        }
+      }
+    ]
+  },
+  "TableHeaderContainerRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "TableRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "table"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "table"
+        }
+      }
+    ]
+  },
+  "TabListRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "tablist"
+        }
+      }
+    ]
+  },
+  "TabPanelRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "tabpanel"
+        }
+      }
+    ]
+  },
+  "TermRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "term"
+        }
+      }
+    ]
+  },
+  "TextFieldRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "textbox"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "input"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "input",
+          "attributes": [
+            {
+              "name": "type",
+              "value": "text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "TimeRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "time"
+        }
+      }
+    ]
+  },
+  "TimerRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "timer"
+        }
+      }
+    ]
+  },
+  "ToggleButtonRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "attributes": [
+            {
+              "name": "aria-pressed"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ToolbarRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "toolbar"
+        }
+      }
+    ]
+  },
+  "TreeRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "tree"
+        }
+      }
+    ]
+  },
+  "TreeGridRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "treegrid"
+        }
+      }
+    ]
+  },
+  "TreeItemRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "treeitem"
+        }
+      }
+    ]
+  },
+  "UserInterfaceTooltipRole": {
+    "type": "structure",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "name": "tooltip"
+        }
+      }
+    ]
+  },
+  "VideoRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "video"
+        }
+      }
+    ]
+  },
+  "WebAreaRole": {
+    "type": "structure",
+    "relatedConcepts": []
+  },
+  "WindowRole": {
+    "type": "window",
+    "relatedConcepts": []
+  }
+}

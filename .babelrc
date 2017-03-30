@@ -1,1 +1,6 @@
-{ "presets": ["latest"] }
+{
+  "presets": ["latest"],
+  "plugins": [
+    "transform-flow-strip-types",
+  ]
+}
