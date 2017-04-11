@@ -1,12 +1,12 @@
 /* eslint-env mocha */
 import expect from 'expect';
-import AXObjects from '../../src/AXObjectsMap';
+import AXObjectsMap from '../../src/AXObjectsMap';
 
 describe('domRolesMap', function () {
   it('should be a Map', function () {
-    expect(AXObjects).toBeA(Map);
+    expect(AXObjectsMap).toBeA(Map);
   });
   it('should have size', function () {
-    expect(AXObjects.size).toBeGreaterThan(0);
+    expect(AXObjectsMap.size).toBeGreaterThan(0);
   });
 });
