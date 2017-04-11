@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const MarkRole = {
+const MarkRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

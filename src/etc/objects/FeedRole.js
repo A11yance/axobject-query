@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const FeedRole = {
+const FeedRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

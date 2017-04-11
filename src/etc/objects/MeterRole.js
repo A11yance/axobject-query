@@ -1,14 +1,8 @@
 /**
  * @flow
  */
-const MeterRole = {
+const MeterRole:AXObjectModelDefinition = {
   relatedConcepts: [
-    {
-      module: 'ARIA',
-      concept: {
-        name: null,
-      },
-    },
     {
       module: 'HTML',
       concept: {

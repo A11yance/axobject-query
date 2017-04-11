@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const IgnoredRole = {
+const IgnoredRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

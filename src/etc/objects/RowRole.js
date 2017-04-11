@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const RowRole = {
+const RowRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

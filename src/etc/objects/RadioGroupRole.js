@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const RadioGroupRole = {
+const RadioGroupRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

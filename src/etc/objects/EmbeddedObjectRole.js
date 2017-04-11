@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const EmbeddedObjectRole = {
+const EmbeddedObjectRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

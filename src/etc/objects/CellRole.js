@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const CellRole = {
+const CellRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

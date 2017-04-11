@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SearchRole = {
+const SearchRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

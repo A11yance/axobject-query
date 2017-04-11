@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TableHeaderContainerRole = {
+const TableHeaderContainerRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const LabelRole = {
+const LabelRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

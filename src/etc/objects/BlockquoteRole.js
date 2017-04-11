@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const BlockquoteRole = {
+const BlockquoteRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

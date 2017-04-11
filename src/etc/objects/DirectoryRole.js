@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const DirectoryRole = {
+const DirectoryRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

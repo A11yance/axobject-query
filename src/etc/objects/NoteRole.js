@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const NoteRole = {
+const NoteRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

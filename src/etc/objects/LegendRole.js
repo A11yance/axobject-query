@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const LegendRole = {
+const LegendRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

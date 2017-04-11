@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const FormRole = {
+const FormRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

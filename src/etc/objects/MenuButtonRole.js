@@ -1,15 +1,8 @@
 /**
  * @flow
  */
-const MenuButtonRole = {
-  relatedConcepts: [
-    {
-      module: 'ARIA',
-      concept: {
-        name: null,
-      },
-    },
-  ],
+const MenuButtonRole:AXObjectModelDefinition = {
+  relatedConcepts: [],
   type: 'widget',
 };
 

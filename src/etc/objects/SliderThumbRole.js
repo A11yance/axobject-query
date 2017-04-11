@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SliderThumbRole = {
+const SliderThumbRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

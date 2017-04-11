@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const BannerRole = {
+const BannerRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

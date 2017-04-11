@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ScrollBarRole = {
+const ScrollBarRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

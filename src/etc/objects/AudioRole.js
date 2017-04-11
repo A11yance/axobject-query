@@ -1,14 +1,8 @@
 /**
  * @flow
  */
-const AudioRole = {
+const AudioRole:AXObjectModelDefinition = {
   relatedConcepts: [
-    {
-      module: 'ARIA',
-      concept: {
-        name: null,
-      },
-    },
     {
       module: 'HTML',
       concept: {

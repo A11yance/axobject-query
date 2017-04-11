@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SeamlessWebAreaRole = {
+const SeamlessWebAreaRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

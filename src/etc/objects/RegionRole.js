@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const RegionRole = {
+const RegionRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ListBoxRole = {
+const ListBoxRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

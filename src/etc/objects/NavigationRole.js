@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const NavigationRole = {
+const NavigationRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

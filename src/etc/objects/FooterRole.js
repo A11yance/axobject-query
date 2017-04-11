@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const FooterRole = {
+const FooterRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

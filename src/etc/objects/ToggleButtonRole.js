@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ToggleButtonRole = {
+const ToggleButtonRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const DisclosureTriangleRole = {
+const DisclosureTriangleRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'widget',
 };

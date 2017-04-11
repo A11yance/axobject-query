@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ToolbarRole = {
+const ToolbarRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

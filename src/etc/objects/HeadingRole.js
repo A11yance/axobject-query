@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const HeadingRole = {
+const HeadingRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

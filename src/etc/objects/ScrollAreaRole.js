@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ScrollAreaRole = {
+const ScrollAreaRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

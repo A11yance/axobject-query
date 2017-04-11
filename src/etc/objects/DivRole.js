@@ -1,14 +1,8 @@
 /**
  * @flow
  */
-const DivRole = {
+const DivRole:AXObjectModelDefinition = {
   relatedConcepts: [
-    {
-      module: 'ARIA',
-      concept: {
-        name: null,
-      },
-    },
     {
       module: 'HTML',
       concept: {

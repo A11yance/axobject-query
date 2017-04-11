@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const FigcaptionRole = {
+const FigcaptionRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

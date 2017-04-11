@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const MenuItemCheckBoxRole = {
+const MenuItemCheckBoxRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

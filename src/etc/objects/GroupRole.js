@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const GroupRole = {
+const GroupRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ProgressIndicatorRole = {
+const ProgressIndicatorRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

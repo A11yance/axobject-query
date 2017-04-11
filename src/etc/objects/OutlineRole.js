@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const OutlineRole = {
+const OutlineRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

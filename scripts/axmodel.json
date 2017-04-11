@@ -67,11 +67,6 @@
     "type": "widget",
     "relatedConcepts": [
       {
-        "module": "ARIA",
-        "concept": {
-          "name": null
-        }
-      }, {
         "module": "HTML",
         "concept": {
           "name": "audio"
@@ -392,11 +387,6 @@
     "type": "generic",
     "relatedConcepts": [
       {
-        "module": "ARIA",
-        "concept": {
-          "name": null
-        }
-      }, {
         "module": "HTML",
         "concept": {
           "name": "div"
@@ -837,14 +827,7 @@
   },
   "MenuButtonRole": {
     "type": "widget",
-    "relatedConcepts": [
-      {
-        "module": "ARIA",
-        "concept": {
-          "name": null
-        }
-      }
-    ]
+    "relatedConcepts": []
   },
   "MenuItemRole": {
     "type": "widget",
@@ -912,11 +895,6 @@
     "type": "structure",
     "relatedConcepts": [
       {
-        "module": "ARIA",
-        "concept": {
-          "name": null
-        }
-      }, {
         "module": "HTML",
         "concept": {
           "name": "meter"

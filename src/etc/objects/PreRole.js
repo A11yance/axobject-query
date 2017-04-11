@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const PreRole = {
+const PreRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

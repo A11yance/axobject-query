@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SwitchRole = {
+const SwitchRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

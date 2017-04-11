@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TimeRole = {
+const TimeRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

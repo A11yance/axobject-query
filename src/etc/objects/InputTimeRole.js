@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const InputTimeRole = {
+const InputTimeRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

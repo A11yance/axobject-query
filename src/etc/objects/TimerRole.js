@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TimerRole = {
+const TimerRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

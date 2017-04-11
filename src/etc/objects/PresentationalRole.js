@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const PresentationalRole = {
+const PresentationalRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

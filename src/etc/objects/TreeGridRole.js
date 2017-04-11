@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TreeGridRole = {
+const TreeGridRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

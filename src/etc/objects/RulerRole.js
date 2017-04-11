@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const RulerRole = {
+const RulerRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

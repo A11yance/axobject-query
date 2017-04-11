@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const WindowRole = {
+const WindowRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'window',
 };

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TextFieldRole = {
+const TextFieldRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TabPanelRole = {
+const TabPanelRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ImageMapLinkRole = {
+const ImageMapLinkRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'widget',
 };

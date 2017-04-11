@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ColumnHeaderRole = {
+const ColumnHeaderRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

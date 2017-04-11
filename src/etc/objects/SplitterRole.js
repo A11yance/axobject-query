@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SplitterRole = {
+const SplitterRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

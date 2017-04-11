@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const UserInterfaceTooltipRole = {
+const UserInterfaceTooltipRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

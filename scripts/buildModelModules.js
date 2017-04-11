@@ -113,7 +113,7 @@ fs.readFile(path.join('scripts/axmodel.json'), {
         '/**',
         ' * @flow',
         ' */',
-        `const ${camelName} = {`,
+        `const ${camelName}:AXObjectModelDefinition = {`,
         Object.keys(aria[name])
           .sort()
           .map((prop) => {

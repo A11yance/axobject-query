@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TermRole = {
+const TermRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

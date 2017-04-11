@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const LinkRole = {
+const LinkRole:AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

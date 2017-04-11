@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ListMarkerRole = {
+const ListMarkerRole:AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };
