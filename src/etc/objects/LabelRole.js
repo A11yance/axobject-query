@@ -10,7 +10,7 @@ const LabelRole:AXObjectModelDefinition = {
       },
     },
   ],
-  type: 'structure',
+  type: 'widget',
 };
 
 export default LabelRole;
