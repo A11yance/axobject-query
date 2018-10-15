@@ -9,6 +9,18 @@ const SwitchRole:AXObjectModelDefinition = {
         name: 'switch',
       },
     },
+    {
+      module: 'HTML',
+      concept: {
+        name: 'input',
+        attributes: [
+          {
+            name: 'type',
+            value: 'checkbox',
+          },
+        ],
+      },
+    }
   ],
   type: 'widget',
 };

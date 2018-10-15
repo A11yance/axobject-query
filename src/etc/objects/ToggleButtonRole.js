@@ -6,6 +6,7 @@ const ToggleButtonRole:AXObjectModelDefinition = {
     {
       module: 'ARIA',
       concept: {
+        name: 'button',
         attributes: [
           {
             name: 'aria-pressed',
