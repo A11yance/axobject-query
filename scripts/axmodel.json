@@ -236,6 +236,11 @@
         "concept": {
           "name": "combobox"
         }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "select"
+        }
       }
     ]
   },
@@ -698,12 +703,22 @@
     ]
   },
   "ListBoxRole": {
-    "type": "structure",
+    "type": "widget",
     "relatedConcepts": [
       {
         "module": "ARIA",
         "concept": {
           "name": "listbox"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "datalist"
+        }
+      }, {
+        "module": "HTML",
+        "concept": {
+          "name": "select"
         }
       }
     ]
@@ -1240,7 +1255,18 @@
         "concept": {
           "name": "switch"
         }
+      }, {
+      "module": "HTML",
+      "concept": {
+        "name": "input",
+        "attributes": [
+          {
+            "name": "type",
+            "value": "checkbox"
+          }
+        ]
       }
+    }
     ]
   },
   "TabGroupRole": {

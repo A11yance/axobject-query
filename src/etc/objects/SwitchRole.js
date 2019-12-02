@@ -20,7 +20,7 @@ const SwitchRole:AXObjectModelDefinition = {
           },
         ],
       },
-    }
+    },
   ],
   type: 'widget',
 };

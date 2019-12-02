@@ -9,8 +9,20 @@ const ListBoxRole:AXObjectModelDefinition = {
         name: 'listbox',
       },
     },
+    {
+      module: 'HTML',
+      concept: {
+        name: 'datalist',
+      },
+    },
+    {
+      module: 'HTML',
+      concept: {
+        name: 'select',
+      },
+    },
   ],
-  type: 'structure',
+  type: 'widget',
 };
 
 export default ListBoxRole;

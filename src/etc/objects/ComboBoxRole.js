@@ -9,6 +9,12 @@ const ComboBoxRole:AXObjectModelDefinition = {
         name: 'combobox',
       },
     },
+    {
+      module: 'HTML',
+      concept: {
+        name: 'select',
+      },
+    },
   ],
   type: 'widget',
 };
