@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SVGRootRole:AXObjectModelDefinition = {
+const SVGRootRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const MenuListPopupRole:AXObjectModelDefinition = {
+const MenuListPopupRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'widget',
 };

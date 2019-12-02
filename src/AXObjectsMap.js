@@ -125,7 +125,7 @@ import VideoRole from './etc/objects/VideoRole';
 import WebAreaRole from './etc/objects/WebAreaRole';
 import WindowRole from './etc/objects/WindowRole';
 
-const AXObjectsMap = new Map([
+const AXObjectsMap: MapOfAXObjectDefinitions = new Map([
   ['AbbrRole', AbbrRole],
   ['AlertDialogRole', AlertDialogRole],
   ['AlertRole', AlertRole],

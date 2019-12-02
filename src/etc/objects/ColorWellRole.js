@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ColorWellRole:AXObjectModelDefinition = {
+const ColorWellRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

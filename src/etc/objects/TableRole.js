@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TableRole:AXObjectModelDefinition = {
+const TableRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ButtonRole:AXObjectModelDefinition = {
+const ButtonRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

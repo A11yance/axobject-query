@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const IframeRole:AXObjectModelDefinition = {
+const IframeRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

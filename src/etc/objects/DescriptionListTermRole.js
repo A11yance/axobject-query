@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const DescriptionListTermRole:AXObjectModelDefinition = {
+const DescriptionListTermRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

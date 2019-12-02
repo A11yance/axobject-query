@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const PopUpButtonRole:AXObjectModelDefinition = {
+const PopUpButtonRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'widget',
 };

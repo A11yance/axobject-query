@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const AnnotationRole:AXObjectModelDefinition = {
+const AnnotationRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

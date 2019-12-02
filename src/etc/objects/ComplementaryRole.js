@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ComplementaryRole:AXObjectModelDefinition = {
+const ComplementaryRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

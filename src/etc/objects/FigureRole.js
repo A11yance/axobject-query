@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const FigureRole:AXObjectModelDefinition = {
+const FigureRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

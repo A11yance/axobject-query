@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const AlertDialogRole:AXObjectModelDefinition = {
+const AlertDialogRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const MenuItemRadioRole:AXObjectModelDefinition = {
+const MenuItemRadioRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

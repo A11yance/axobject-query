@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ContentInfoRole:AXObjectModelDefinition = {
+const ContentInfoRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

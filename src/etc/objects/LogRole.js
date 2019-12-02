@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const LogRole:AXObjectModelDefinition = {
+const LogRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

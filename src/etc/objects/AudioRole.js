@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const AudioRole:AXObjectModelDefinition = {
+const AudioRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

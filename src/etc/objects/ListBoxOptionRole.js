@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ListBoxOptionRole:AXObjectModelDefinition = {
+const ListBoxOptionRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SliderRole:AXObjectModelDefinition = {
+const SliderRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

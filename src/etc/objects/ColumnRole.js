@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ColumnRole:AXObjectModelDefinition = {
+const ColumnRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

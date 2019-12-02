@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const VideoRole:AXObjectModelDefinition = {
+const VideoRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

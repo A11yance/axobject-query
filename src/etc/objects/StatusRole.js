@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const StatusRole:AXObjectModelDefinition = {
+const StatusRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

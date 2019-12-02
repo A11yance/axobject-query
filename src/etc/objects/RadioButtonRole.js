@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const RadioButtonRole:AXObjectModelDefinition = {
+const RadioButtonRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

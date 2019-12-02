@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SpinButtonPartRole:AXObjectModelDefinition = {
+const SpinButtonPartRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

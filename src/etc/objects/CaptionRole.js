@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const CaptionRole:AXObjectModelDefinition = {
+const CaptionRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

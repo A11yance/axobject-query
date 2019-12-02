@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const MarqueeRole:AXObjectModelDefinition = {
+const MarqueeRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -180,7 +180,7 @@ fs.readFile(path.join('scripts/axmodel.json'), {
       + ' */\n'
       + `${requiresMapper(literalRequires, 0)}\n`
       + `\n`
-      + `const AXObjectsMap = new Map([\n`
+      + `const AXObjectsMap: MapOfAXObjectDefinitions = new Map([\n`
       + `${requiresCombiner(literalRequires, 1)}\n`
       + `]);\n`
       + `\n`

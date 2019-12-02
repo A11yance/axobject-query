@@ -4,7 +4,7 @@
 
 import AXObjects from './AXObjectsMap';
 
-const AXObjectRoleMap = new Map([]);
+const AXObjectRoleMap: AXObjectRoleMap = new Map([]);
 
 for (let [name, def] of AXObjects) {
   const relatedConcepts = def.relatedConcepts;

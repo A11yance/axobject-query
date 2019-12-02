@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ComboBoxRole:AXObjectModelDefinition = {
+const ComboBoxRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',
