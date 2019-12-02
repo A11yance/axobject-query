@@ -13,3 +13,7 @@
 
 - b436e56 (origin/update-dependencies, update-dependencies) Update dependencies; ESLint to 6
 - c157720 Fixes for select and datalist
+
+## 2.1.1
+
+- Bumping the version to see if Travis will run green on the master branch
