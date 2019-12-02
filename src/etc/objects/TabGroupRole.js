@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TabGroupRole:AXObjectModelDefinition = {
+const TabGroupRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

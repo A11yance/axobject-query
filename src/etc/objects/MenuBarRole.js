@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const MenuBarRole:AXObjectModelDefinition = {
+const MenuBarRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

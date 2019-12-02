@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const SpinButtonRole:AXObjectModelDefinition = {
+const SpinButtonRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

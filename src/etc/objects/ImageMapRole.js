@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ImageMapRole:AXObjectModelDefinition = {
+const ImageMapRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const RubyRole:AXObjectModelDefinition = {
+const RubyRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

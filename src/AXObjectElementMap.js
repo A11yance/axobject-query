@@ -4,7 +4,7 @@
 
 import AXObjects from './AXObjectsMap';
 
-const AXObjectElementMap = new Map([]);
+const AXObjectElementMap: AXObjectElementMap = new Map([]);
 
 for (let [name, def] of AXObjects) {
   const relatedConcepts = def.relatedConcepts;

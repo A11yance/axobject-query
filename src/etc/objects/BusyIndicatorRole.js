@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const BusyIndicatorRole:AXObjectModelDefinition = {
+const BusyIndicatorRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

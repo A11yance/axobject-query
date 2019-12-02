@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const IframePresentationalRole:AXObjectModelDefinition = {
+const IframePresentationalRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'window',
 };

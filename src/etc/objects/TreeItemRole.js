@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const TreeItemRole:AXObjectModelDefinition = {
+const TreeItemRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const RootWebAreaRole:AXObjectModelDefinition = {
+const RootWebAreaRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

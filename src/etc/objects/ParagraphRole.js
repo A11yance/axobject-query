@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const ParagraphRole:AXObjectModelDefinition = {
+const ParagraphRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

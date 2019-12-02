@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const GridRole:AXObjectModelDefinition = {
+const GridRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',

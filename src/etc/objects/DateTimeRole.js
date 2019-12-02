@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const DateTimeRole:AXObjectModelDefinition = {
+const DateTimeRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

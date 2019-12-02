@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const StaticTextRole:AXObjectModelDefinition = {
+const StaticTextRole: AXObjectModelDefinition = {
   relatedConcepts: [],
   type: 'structure',
 };

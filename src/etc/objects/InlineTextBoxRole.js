@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const InlineTextBoxRole:AXObjectModelDefinition = {
+const InlineTextBoxRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

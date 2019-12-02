@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const MeterRole:AXObjectModelDefinition = {
+const MeterRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

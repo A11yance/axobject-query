@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const LineBreakRole:AXObjectModelDefinition = {
+const LineBreakRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

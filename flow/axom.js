@@ -12,6 +12,11 @@ type AXObjectModelRelation = {
   concept?: AXObjectModelRelationConcept,
 };
 
+type MapOfAXObjectDefinitions = Map<string, AXObjectModelDefinition>;
+type ElementAXObjectMap = Map<AXObjectModelRelationConcept, Set<string>>;
+type AXObjectRoleMap = Map<string, Set<AXObjectModelRelationConcept>>;
+type AXObjectElementMap = Map<string, Set<AXObjectModelRelationConcept>>;
+
 /* The concept in a related domain that informs behavior mappings.
  * Related domains include: HTML and ARIA.
  */

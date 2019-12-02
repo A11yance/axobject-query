@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const CanvasRole:AXObjectModelDefinition = {
+const CanvasRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'HTML',

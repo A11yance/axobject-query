@@ -1,7 +1,7 @@
 /**
  * @flow
  */
-const CheckBoxRole:AXObjectModelDefinition = {
+const CheckBoxRole: AXObjectModelDefinition = {
   relatedConcepts: [
     {
       module: 'ARIA',
