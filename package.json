@@ -48,10 +48,7 @@
     "jest": "^24.9.0",
     "rimraf": "^2.6.3"
   },
-  "dependencies": {
-    "@babel/runtime": "^7.7.4",
-    "@babel/runtime-corejs3": "^7.7.4"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "eslint": "^5 || ^6"
   },
