@@ -49,9 +49,6 @@
     "rimraf": "^2.6.3"
   },
   "dependencies": {},
-  "peerDependencies": {
-    "eslint": "^5 || ^6"
-  },
   "jest": {
     "coverageReporters": [
       "lcov"
