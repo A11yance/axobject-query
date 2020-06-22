@@ -24,7 +24,7 @@ after_success:
 sudo: false
 branches:
   only:
-    - master
+    - main
 env:
   global:
     - TEST=true
