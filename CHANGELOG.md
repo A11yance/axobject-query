@@ -24,3 +24,8 @@
 - 5c5e04d Remove Peer Dependency to ESLint
 - ec1b53b Remove dependencies on @babel/runtime and @babel/runtime-corejs3
 
+## 2.2.0
+
+9b9db89 Add the summary element as a related concept in DisclosureTriangleRole
+7ac02af Fix the build script for the src files
+56e0765 Fix permissions on files from 755 to 644
