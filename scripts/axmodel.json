@@ -386,7 +386,14 @@
   },
   "DisclosureTriangleRole": {
     "type": "widget",
-    "relatedConcepts": []
+    "relatedConcepts": [
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "summary"
+        }
+      }
+    ]
   },
   "DivRole": {
     "type": "generic",
