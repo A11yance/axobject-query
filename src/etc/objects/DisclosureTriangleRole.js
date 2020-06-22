@@ -2,7 +2,14 @@
  * @flow
  */
 const DisclosureTriangleRole: AXObjectModelDefinition = {
-  relatedConcepts: [],
+  relatedConcepts: [
+    {
+      module: 'HTML',
+      concept: {
+        name: 'summary',
+      },
+    },
+  ],
   type: 'widget',
 };
 
