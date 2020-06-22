@@ -1,6 +1,6 @@
 {
   "name": "axobject-query",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Programmatic access to information about the AXObject Model",
   "main": "lib/index.js",
   "files": [
