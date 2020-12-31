@@ -4,8 +4,6 @@
 
 import AXObjects from './AXObjectsMap';
 
-const axObjectNames = [...AXObjects.keys()];
-
 const elementAXObjectMap: ElementAXObjectMap = new Map([]);
 
 for (let [name, def] of AXObjects) {
@@ -21,7 +19,7 @@ for (let [name, def] of AXObjects) {
 
           let axObjects = ([...elementAXObjectMap.entries()]
             .find(
-              ([key, value]) => JSON.stringify(key) === conceptStr)|| []
+              ([key]) => JSON.stringify(key) === conceptStr)|| []
             )[1];
 
           if (!axObjects) {

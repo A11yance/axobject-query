@@ -4,7 +4,7 @@ import AXObjectsMap from '../../src/AXObjectsMap';
 
 describe('domRolesMap', function () {
   it('should be a Map', function () {
-    expect(AXObjectsMap).toBeA(Map);
+    expect(AXObjectsMap instanceof Map).toBe(true);
   });
   it('should have size', function () {
     expect(AXObjectsMap.size).toBeGreaterThan(0);

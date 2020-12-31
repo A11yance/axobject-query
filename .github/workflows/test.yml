@@ -1,0 +1,110 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+      - "!dependabot/**"
+  pull_request:
+  workflow_dispatch:
+jobs:
+  jest:
+    name: Jest (Node v${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [10, 12, 14, 15]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Load Node version ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Npm Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Run Jest
+        run: npm run test:ci
+      - name: Run Coveralls
+        uses: coverallsapp/github-action@v1.1.2
+        if: matrix.node == '12'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./reports/lcov.info
+  flow:
+    name: Flow type checking
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Load Node
+        uses: actions/setup-node@v2
+      - name: Npm Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Flow type check
+        run: npm run flow
+  eslint:
+    name: ESLint (Node v${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Load Node version ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Npm Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint
+  diff-breakUpAriaJSON:
+    name: Compare JSON to src output
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Load Node version
+        uses: actions/setup-node@v2
+      - name: Npm Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Run diff check for the breakUpAriaJSON script
+        run: node scripts/buildModelModules.js && git diff --exit-code -- src
