@@ -1,12 +1,14 @@
-[![Build Status](https://travis-ci.org/A11yance/axobject-query.svg?branch=master)](https://travis-ci.org/A11yance/axobject-query)
-
 **NOTICE: The API for AXObject Query is very much under development until a major version release. Please be aware that data structures might change in minor version releases before 1.0.0 is released.**
 
 # AXObject Query
 
+![CI](https://github.com/A11yance/axobject-query/workflows/CI/badge.svg)
+
 Approximate model of the [Chrome AXObject](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/modules/accessibility/AXObject.h).
 
 The project attempts to map the AXObject concepts to the [WAI-ARIA 1.1 Roles Model](https://www.w3.org/TR/wai-aria-1.1/#roles) so that a complete representation of the semantic HTML layer, as it is exposed assistive technology, can be obtained.
+
+CDN URL: <https://unpkg.com/axobject-query>
 
 ## Utilities
 
@@ -20,7 +22,7 @@ AXObjects are mapped to their HTML and ARIA concepts in the `relatedConcepts` fi
 
 The `type` field is a loose association of an AXObject to the `window`, `structure` and `widget` abstract roles in ARIA. The `generic` value is given to `DivRole`; it does not exist in ARIA. Divs are special in HTML in the way that they are used as generic containers. Span might have also been associated with a generic type except that there is no `SpanRole` AXObject.
 
-```
+```javascript
 Map {
   'AbbrRole' => { relatedConcepts: [ [Object] ], type: 'structure' },
   'AlertDialogRole' => { relatedConcepts: [ [Object] ], type: 'window' },
@@ -156,7 +158,7 @@ import { AXObjectElements } from 'axobject-query';
 
 AXObjects are mapped to their related HTML concepts, which may require attributes (in the case of inputs) to obtain the correct association.
 
-```
+```javascript
 Map {
   'AbbrRole' => Set { { name: 'abbr' } },
   'ArticleRole' => Set { { name: 'article' } },
@@ -229,7 +231,7 @@ import { AXObjectRoles } from 'axobject-query';
 
 AXObjects are mapped to their related ARIA concepts..
 
-```
+```javascript
 Map {
   'AlertDialogRole' => Set { { name: 'alertdialog' } },
   'AlertRole' => Set { { name: 'alert' } },
@@ -311,7 +313,7 @@ import { elementAXObjects } from 'axobject-query';
 
 HTML elements are mapped to their related AXConcepts concepts.
 
-```
+```javascript
 Map {
   { name: 'abbr' } => Set { 'AbbrRole' },
   { name: 'article' } => Set { 'ArticleRole' },
