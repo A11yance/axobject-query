@@ -42,7 +42,7 @@
     "eslint-plugin-import": "^2.22.1",
     "expect": "^27.2.2",
     "flow-bin": "^0.160.2",
-    "jest": "^26.6.3",
+    "jest": "^27.2.2",
     "rimraf": "^3.0.2"
   },
   "jest": {
