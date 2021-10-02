@@ -125,7 +125,18 @@ import VideoRole from './etc/objects/VideoRole';
 import WebAreaRole from './etc/objects/WebAreaRole';
 import WindowRole from './etc/objects/WindowRole';
 
-const AXObjectsMap: MapOfAXObjectDefinitions = new Map([
+type TAXObjectsTuple = [string, AXObjectModelDefinition];
+type TAXObjects = Array<TAXObjectsTuple>;
+
+type TAXObjectsMap = {|
+  entries: () => TAXObjects,
+  get: (key: string) => ?AXObjectModelDefinition,
+  has: (key: string) => boolean,
+  keys: () => Array<string>,
+  values: () => Array<AXObjectModelDefinition>,
+|};
+
+const AXObjects: TAXObjects = [
   ['AbbrRole', AbbrRole],
   ['AlertDialogRole', AlertDialogRole],
   ['AlertRole', AlertRole],
@@ -249,6 +260,25 @@ const AXObjectsMap: MapOfAXObjectDefinitions = new Map([
   ['VideoRole', VideoRole],
   ['WebAreaRole', WebAreaRole],
   ['WindowRole', WindowRole]
-]);
+];
+
+const AXObjectsMap: TAXObjectsMap = {
+  entries: function (): TAXObjects {
+    return AXObjects;
+  },
+  get: function (key: string): ?AXObjectModelDefinition {
+    const item = AXObjects.find(tuple => (tuple[0] === key) ? true : false);
+    return item && item[1];
+  },
+  has: function (key: string): boolean {
+    return !!this.get(key);
+  },
+  keys: function (): Array<string> {
+    return AXObjects.map(([key]) => key);
+  },
+  values: function (): Array<AXObjectModelDefinition> {
+    return AXObjects.map(([, values]) => values);
+  }
+};
 
 export default AXObjectsMap;

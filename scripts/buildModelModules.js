@@ -178,10 +178,40 @@ fs.readFile(path.join('scripts/axmodel.json'), {
       + ' */\n'
       + `${requiresMapper(literalRequires, 0)}\n`
       + `\n`
-      + `const AXObjectsMap: MapOfAXObjectDefinitions = new Map([\n`
+      + 'type TAXObjectsTuple = [string, AXObjectModelDefinition];\n'
+      + 'type TAXObjects = Array<TAXObjectsTuple>;\n'
+      + '\n'
+      + 'type TAXObjectsMap = {|\n'
+      + '  entries: () => TAXObjects,\n'
+      + '  get: (key: string) => ?AXObjectModelDefinition,\n'
+      + '  has: (key: string) => boolean,\n'
+      + '  keys: () => Array<string>,\n'
+      + '  values: () => Array<AXObjectModelDefinition>,\n'
+      + '|};\n'
+      + '\n'
+      + `const AXObjects: TAXObjects = [\n`
       + `${requiresCombiner(literalRequires, 1)}\n`
-      + `]);\n`
+      + `];\n`
       + `\n`
+      + 'const AXObjectsMap: TAXObjectsMap = {\n'
+      + '  entries: function (): TAXObjects {\n'
+      + '    return AXObjects;\n'
+      + '  },\n'
+      + '  get: function (key: string): ?AXObjectModelDefinition {\n'
+      + '    const item = AXObjects.find(tuple => (tuple[0] === key) ? true : false);\n'
+      + '    return item && item[1];\n'
+      + '  },\n'
+      + '  has: function (key: string): boolean {\n'
+      + '    return !!this.get(key);\n'
+      + '  },\n'
+      + '  keys: function (): Array<string> {\n'
+      + '    return AXObjects.map(([key]) => key);\n'
+      + '  },\n'
+      + '  values: function (): Array<AXObjectModelDefinition> {\n'
+      + '    return AXObjects.map(([, values]) => values);\n'
+      + '  }\n'
+      + '};\n'
+      + '\n'
       + `export default AXObjectsMap;`,
       {
         encoding: 'ascii'
