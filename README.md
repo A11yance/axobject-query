@@ -22,6 +22,7 @@ import { AXObjects } from 'axobject-query';
 
 These methods are available on each export from the module. The typing here in the documentation is pseudo-typed. Each export will have its own specific types for each method signature.
 
+```javascript
 {|
   entries: () => Array<$Item>,
   get: (key: $Key) => ?$Value,
@@ -29,6 +30,7 @@ These methods are available on each export from the module. The typing here in t
   keys: () => Array<$Key>,
   values: () => Array<$Value>,
 |};
+```
 
 ### Concepts in the project
 
