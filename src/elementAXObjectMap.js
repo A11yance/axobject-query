@@ -3,17 +3,11 @@
  */
 
 import AXObjects from './AXObjectsMap';
+import deepEqual from 'deep-equal';
+import iterationDecorator from './util/iterationDecorator';
 
-type TElementAXObjectTuple = [AXObjectModelRelationConcept, Array<string>];
+type TElementAXObjectTuple = [AXObjectModelRelationConcept, Array<AXObjectName>];
 type TElementAXObjects = Array<TElementAXObjectTuple>;
-
-type TElementAXObjectMap = {|
-  entries: () => TElementAXObjects,
-  get: (key: AXObjectModelRelationConcept) => ?Array<string>,
-  has: (key: AXObjectModelRelationConcept) => boolean,
-  keys: () => Array<AXObjectModelRelationConcept>,
-  values: () => Array<Array<string>>,
-|};
 
 const elementAXObjects: TElementAXObjects = [];
 
@@ -25,7 +19,7 @@ for (let [name, def] of AXObjects.entries()) {
     ): void => {
       if (relation.module === 'HTML') {
         const concept = relation.concept;
-        if (concept) {
+        if (concept != null) {
           const conceptStr = JSON.stringify(concept);
           let axObjects;
           let index = 0;
@@ -36,7 +30,7 @@ for (let [name, def] of AXObjects.entries()) {
               break;
             }
           }
-          if (!axObjects) {
+          if (!Array.isArray(axObjects)) {
             axObjects = [];
           }
           const loc = axObjects.findIndex(item => item === name);
@@ -54,12 +48,24 @@ for (let [name, def] of AXObjects.entries()) {
   }
 }
 
-const elementAXObjectMap: TElementAXObjectMap = {
+const elementAXObjectMap: TAXObjectQueryMap<
+  TElementAXObjects,
+  AXObjectModelRelationConcept,
+  Array<AXObjectName>,
+> = {
   entries: function (): TElementAXObjects {
     return elementAXObjects;
   },
-  get: function (key: AXObjectModelRelationConcept): ?Array<string> {
-    const item = elementAXObjects.find(tuple => (tuple[0] === key) ? true : false);
+  forEach: function (
+    fn: (Array<AXObjectName>, AXObjectModelRelationConcept, TElementAXObjects) => void,
+    thisArg: any = null,
+  ): void {
+    for (let [key, values] of elementAXObjects) {
+      fn.call(thisArg, values, key, elementAXObjects);
+    }
+  },
+  get: function (key: AXObjectModelRelationConcept): ?Array<AXObjectName> {
+    const item = elementAXObjects.find(tuple => (deepEqual(key, tuple[0])) ? true : false);
     return item && item[1];
   },
   has: function (key: AXObjectModelRelationConcept): boolean {
@@ -68,9 +74,14 @@ const elementAXObjectMap: TElementAXObjectMap = {
   keys: function (): Array<AXObjectModelRelationConcept> {
     return elementAXObjects.map(([key]) => key);
   },
-  values: function (): Array<Array<string>> {
+  values: function (): Array<Array<AXObjectName>> {
     return elementAXObjects.map(([, values]) => values);
-  }
+  },
 };
 
-export default elementAXObjectMap;
+export default (
+  iterationDecorator(
+    elementAXObjectMap,
+    elementAXObjectMap.entries(),
+  ): TAXObjectQueryMap<TElementAXObjects, AXObjectModelRelationConcept, Array<AXObjectName>>
+);

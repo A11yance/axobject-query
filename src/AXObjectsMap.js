@@ -1,6 +1,8 @@
 /**
  * @flow
  */
+
+import iterationDecorator from './util/iterationDecorator';
 import AbbrRole from './etc/objects/AbbrRole';
 import AlertDialogRole from './etc/objects/AlertDialogRole';
 import AlertRole from './etc/objects/AlertRole';
@@ -125,16 +127,8 @@ import VideoRole from './etc/objects/VideoRole';
 import WebAreaRole from './etc/objects/WebAreaRole';
 import WindowRole from './etc/objects/WindowRole';
 
-type TAXObjectsTuple = [string, AXObjectModelDefinition];
+type TAXObjectsTuple = [AXObjectName, AXObjectModelDefinition];
 type TAXObjects = Array<TAXObjectsTuple>;
-
-type TAXObjectsMap = {|
-  entries: () => TAXObjects,
-  get: (key: string) => ?AXObjectModelDefinition,
-  has: (key: string) => boolean,
-  keys: () => Array<string>,
-  values: () => Array<AXObjectModelDefinition>,
-|};
 
 const AXObjects: TAXObjects = [
   ['AbbrRole', AbbrRole],
@@ -262,18 +256,30 @@ const AXObjects: TAXObjects = [
   ['WindowRole', WindowRole]
 ];
 
-const AXObjectsMap: TAXObjectsMap = {
+const AXObjectsMap: TAXObjectQueryMap<
+  TAXObjects,
+  AXObjectName,
+  AXObjectModelDefinition,
+> = {
   entries: function (): TAXObjects {
     return AXObjects;
   },
-  get: function (key: string): ?AXObjectModelDefinition {
+  forEach: function (
+    fn: (AXObjectModelDefinition, AXObjectName, TAXObjects) => void,
+    thisArg: any = null,
+  ): void {
+    for (let [key, values] of AXObjects) {
+      fn.call(thisArg, values, key, AXObjects);
+    }
+  },
+  get: function (key: AXObjectName): ?AXObjectModelDefinition {
     const item = AXObjects.find(tuple => (tuple[0] === key) ? true : false);
     return item && item[1];
   },
-  has: function (key: string): boolean {
+  has: function (key: AXObjectName): boolean {
     return !!this.get(key);
   },
-  keys: function (): Array<string> {
+  keys: function (): Array<AXObjectName> {
     return AXObjects.map(([key]) => key);
   },
   values: function (): Array<AXObjectModelDefinition> {
@@ -281,4 +287,9 @@ const AXObjectsMap: TAXObjectsMap = {
   }
 };
 
-export default AXObjectsMap;
+export default (
+  iterationDecorator(
+    AXObjectsMap,
+    AXObjectsMap.entries(),
+  ): TAXObjectQueryMap<TAXObjects, AXObjectName, AXObjectModelDefinition>
+);

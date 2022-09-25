@@ -2,18 +2,11 @@
  * @flow
  */
 
+import iterationDecorator from "./util/iterationDecorator";
 import AXObjects from './AXObjectsMap';
 
-type TAXObjectRoleTuple = [string, Array<AXObjectModelRelationConcept>];
+type TAXObjectRoleTuple = [AXObjectName, Array<AXObjectModelRelationConcept>];
 type TAXObjectRoleElements = Array<TAXObjectRoleTuple>;
-
-type TAXObjectRoleMap = {|
-  entries: () => TAXObjectRoleElements,
-  get: (key: string) => ?Array<AXObjectModelRelationConcept>,
-  has: (key: string) => boolean,
-  keys: () => Array<string>,
-  values: () => Array<Array<AXObjectModelRelationConcept>>,
-|};
 
 const AXObjectRoleElements: TAXObjectRoleElements = [];
 
@@ -38,9 +31,21 @@ for (let [name, def] of AXObjects.entries()) {
   }
 }
 
-const AXObjectRoleMap: TAXObjectRoleMap = {
+const AXObjectRoleMap: TAXObjectQueryMap<
+  TAXObjectRoleElements,
+  AXObjectName,
+  Array<AXObjectModelRelationConcept>
+> = {
   entries: function (): TAXObjectRoleElements {
     return AXObjectRoleElements;
+  },
+  forEach: function (
+    fn: (Array<AXObjectModelRelationConcept>, AXObjectName, TAXObjectRoleElements) => void,
+    thisArg: any = null,
+  ): void {
+    for (let [key, values] of AXObjectRoleElements) {
+      fn.call(thisArg, values, key, AXObjectRoleElements);
+    }
   },
   get: function (key: string): ?Array<AXObjectModelRelationConcept> {
     const item = AXObjectRoleElements.find(tuple => (tuple[0] === key) ? true : false);
@@ -49,7 +54,7 @@ const AXObjectRoleMap: TAXObjectRoleMap = {
   has: function (key: string): boolean {
     return !!this.get(key);
   },
-  keys: function (): Array<string> {
+  keys: function (): Array<AXObjectName> {
     return AXObjectRoleElements.map(([key]) => key);
   },
   values: function (): Array<Array<AXObjectModelRelationConcept>> {
@@ -57,4 +62,9 @@ const AXObjectRoleMap: TAXObjectRoleMap = {
   }
 };
 
-export default AXObjectRoleMap;
+export default (
+  iterationDecorator(
+    AXObjectRoleMap,
+    AXObjectRoleMap.entries(),
+  ): TAXObjectQueryMap<TAXObjectRoleElements, AXObjectName, Array<AXObjectModelRelationConcept>>
+);
