@@ -52,7 +52,7 @@ const AXObjectElementMap: TAXObjectQueryMap<
     return item && item[1];
   },
   has: function (key: AXObjectName): boolean {
-    return !!this.get(key);
+    return !!AXObjectElementMap.get(key);
   },
   keys: function (): Array<AXObjectName> {
     return AXObjectElements.map(([key]) => key);

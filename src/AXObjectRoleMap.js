@@ -47,12 +47,12 @@ const AXObjectRoleMap: TAXObjectQueryMap<
       fn.call(thisArg, values, key, AXObjectRoleElements);
     }
   },
-  get: function (key: string): ?Array<AXObjectModelRelationConcept> {
+  get: function (key: AXObjectName): ?Array<AXObjectModelRelationConcept> {
     const item = AXObjectRoleElements.find(tuple => (tuple[0] === key) ? true : false);
     return item && item[1];
   },
-  has: function (key: string): boolean {
-    return !!this.get(key);
+  has: function (key: AXObjectName): boolean {
+    return !!AXObjectRoleMap.get(key);
   },
   keys: function (): Array<AXObjectName> {
     return AXObjectRoleElements.map(([key]) => key);

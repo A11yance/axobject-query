@@ -277,7 +277,7 @@ const AXObjectsMap: TAXObjectQueryMap<
     return item && item[1];
   },
   has: function (key: AXObjectName): boolean {
-    return !!this.get(key);
+    return !!AXObjectsMap.get(key);
   },
   keys: function (): Array<AXObjectName> {
     return AXObjects.map(([key]) => key);

@@ -69,7 +69,7 @@ const elementAXObjectMap: TAXObjectQueryMap<
     return item && item[1];
   },
   has: function (key: AXObjectModelRelationConcept): boolean {
-    return !!this.get(key);
+    return !!elementAXObjectMap.get(key);
   },
   keys: function (): Array<AXObjectModelRelationConcept> {
     return elementAXObjects.map(([key]) => key);

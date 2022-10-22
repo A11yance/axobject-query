@@ -208,7 +208,7 @@ fs.readFile(path.join('scripts/axmodel.json'), {
       + '    return item && item[1];\n'
       + '  },\n'
       + '  has: function (key: AXObjectName): boolean {\n'
-      + '    return !!this.get(key);\n'
+      + '    return !!AXObjectsMap.get(key);\n'
       + '  },\n'
       + '  keys: function (): Array<AXObjectName> {\n'
       + '    return AXObjects.map(([key]) => key);\n'
