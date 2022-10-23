@@ -64,3 +64,27 @@ These are the changes in usage you might need to account for:
 - 8d2937d Bump path-parse from 1.0.6 to 1.0.7
 - be20a4f Switch to Github Actions from TravisCI
 - c35af61 Change Travis config from master to main branch
+
+## 3.1.0 / 3.1.1
+
+This minor release introduces iteration support to the primary objects of the module, through the `Symbol.iterator` property. This reintroduces the native `Map` iteration support that was lost in the v3 update. A `forEach` method is also introduced in this update. The common interface of all objects exposed by this module is now:
+
+```
+type TAXObjectQueryMap<E, K, V> = {
+  entries: () => E,
+  forEach: ((V, K, E) => void) => void,
+  get: (key: K) => ?V,
+  has: (key: K) => boolean,
+  keys: () => Array<K>,
+  values: () => Array<V>,
+  @@iterator?: () => Iterator<E>,
+};
+```
+
+### Commits of note
+
+  - f47ab5f Update dependencies to current minor releases
+  - 763f0c9 Introduce iteration support to the Maps in the module
+  - 0077265 Update dependencies to new major versions
+  - c8b8a2b Use @babel/eslint-parser instead of babel-eslint project
+  - f27196b Use default NPM caching in Github Actions
