@@ -114,6 +114,7 @@ import TableRole from './etc/objects/TableRole';
 import TabListRole from './etc/objects/TabListRole';
 import TabPanelRole from './etc/objects/TabPanelRole';
 import TermRole from './etc/objects/TermRole';
+import TextAreaRole from './etc/objects/TextAreaRole';
 import TextFieldRole from './etc/objects/TextFieldRole';
 import TimeRole from './etc/objects/TimeRole';
 import TimerRole from './etc/objects/TimerRole';
@@ -242,6 +243,7 @@ const AXObjects: TAXObjects = [
   ['TabListRole', TabListRole],
   ['TabPanelRole', TabPanelRole],
   ['TermRole', TermRole],
+  ['TextAreaRole', TextAreaRole],
   ['TextFieldRole', TextFieldRole],
   ['TimeRole', TimeRole],
   ['TimerRole', TimerRole],
