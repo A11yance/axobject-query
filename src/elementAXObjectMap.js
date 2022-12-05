@@ -65,7 +65,9 @@ const elementAXObjectMap: TAXObjectQueryMap<
     }
   },
   get: function (key: AXObjectModelRelationConcept): ?Array<AXObjectName> {
-    const item = elementAXObjects.find(tuple => (deepEqual(key, tuple[0])) ? true : false);
+    const item = elementAXObjects.find(tuple => (
+      key.name === tuple[0].name && deepEqual(key.attributes, tuple[0].attributes)
+    ));
     return item && item[1];
   },
   has: function (key: AXObjectModelRelationConcept): boolean {

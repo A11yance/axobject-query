@@ -390,6 +390,29 @@
       {
         "module": "HTML",
         "concept": {
+          "attributes": [
+            {
+              "name": "open",
+              "value": "open"
+            }
+          ],
+          "constraints": [
+            "scoped to a details element"
+          ],
+          "name": "summary"
+        }
+      },
+      {
+        "module": "HTML",
+        "concept": {
+          "attributes": [
+            {
+              "name": "aria-expanded"
+            }
+          ],
+          "constraints": [
+            "scoped to a details element"
+          ],
           "name": "summary"
         }
       }
@@ -1347,6 +1370,29 @@
         "module": "ARIA",
         "concept": {
           "name": "term"
+        }
+      }
+    ]
+  },
+  "TextAreaRole": {
+    "type": "widget",
+    "relatedConcepts": [
+      {
+        "module": "ARIA",
+        "concept": {
+          "attributes": [
+            {
+              "name": "aria-multiline",
+              "value": "true"
+            }
+          ],
+          "name": "textbox"
+        }
+      },
+      {
+        "module": "HTML",
+        "concept": {
+          "name": "textarea"
         }
       }
     ]
