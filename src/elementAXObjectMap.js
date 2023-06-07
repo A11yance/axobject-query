@@ -2,8 +2,8 @@
  * @flow
  */
 
+import { dequal } from 'dequal/lite';
 import AXObjects from './AXObjectsMap';
-import deepEqual from 'deep-equal';
 import iterationDecorator from './util/iterationDecorator';
 
 type TElementAXObjectTuple = [AXObjectModelRelationConcept, Array<AXObjectName>];
@@ -66,7 +66,7 @@ const elementAXObjectMap: TAXObjectQueryMap<
   },
   get: function (key: AXObjectModelRelationConcept): ?Array<AXObjectName> {
     const item = elementAXObjects.find(tuple => (
-      key.name === tuple[0].name && deepEqual(key.attributes, tuple[0].attributes)
+      key.name === tuple[0].name && dequal(key.attributes, tuple[0].attributes)
     ));
     return item && item[1];
   },
