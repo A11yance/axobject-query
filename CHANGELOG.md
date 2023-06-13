@@ -95,3 +95,7 @@ Commit 22915be contains a substantial audit and update of the project to match t
 
   - d7f9071 Switch to dequal to remove 45 transitive dependencies
   - 22915be Refreshing HTML mappings according to the HTML Accessibility API Mappings
+
+## 3.2.1
+
+  - f250e99 Update package-lock.json
