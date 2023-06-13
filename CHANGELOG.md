@@ -88,3 +88,10 @@ type TAXObjectQueryMap<E, K, V> = {
   - 0077265 Update dependencies to new major versions
   - c8b8a2b Use @babel/eslint-parser instead of babel-eslint project
   - f27196b Use default NPM caching in Github Actions
+
+## 3.2.0
+
+Commit 22915be contains a substantial audit and update of the project to match the ARIA spec. Testing coverage was substantially improved. It really locks down the project's output.
+
+  - d7f9071 Switch to dequal to remove 45 transitive dependencies
+  - 22915be Refreshing HTML mappings according to the HTML Accessibility API Mappings
