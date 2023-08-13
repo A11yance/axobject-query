@@ -24,7 +24,7 @@ const entriesList = [
   ["DetailsRole", [{"name": "details"}]],
   ["DialogRole", [{"name": "dialog"}]],
   ["DirectoryRole", [{"name": "dir"}]],
-  ["DisclosureTriangleRole", [{"attributes": [{"name": "open", "value": "open"}], "constraints": ["scoped to a details element"], "name": "summary"}, {"attributes": [{"name": "aria-expanded"}], "constraints": ["scoped to a details element"], "name": "summary"}]],
+  ["DisclosureTriangleRole", [{"constraints": ["scoped to a details element"], "name": "summary"}]],
   ["DivRole", [{"name": "div"}]],
   ["EmbeddedObjectRole", [{"name": "embed"}]],
   ["FigcaptionRole", [{"name": "figcaption"}]],
@@ -152,7 +152,7 @@ describe('AXObjectElementMap', function () {
       expect(AXObjectElementMap.get("DetailsRole")).toEqual([{"name": "details"}]);
       expect(AXObjectElementMap.get("DialogRole")).toEqual([{"name": "dialog"}]);
       expect(AXObjectElementMap.get("DirectoryRole")).toEqual([{"name": "dir"}]);
-      expect(AXObjectElementMap.get("DisclosureTriangleRole")).toEqual([{"attributes": [{"name": "open", "value": "open"}], "constraints": ["scoped to a details element"], "name": "summary"}, {"attributes": [{"name": "aria-expanded"}], "constraints": ["scoped to a details element"], "name": "summary"}]);
+      expect(AXObjectElementMap.get("DisclosureTriangleRole")).toEqual([{"constraints": ["scoped to a details element"], "name": "summary"}]);
       expect(AXObjectElementMap.get("DivRole")).toEqual([{"name": "div"}]);
       expect(AXObjectElementMap.get("EmbeddedObjectRole")).toEqual([{"name": "embed"}]);
       expect(AXObjectElementMap.get("FigcaptionRole")).toEqual([{"name": "figcaption"}]);

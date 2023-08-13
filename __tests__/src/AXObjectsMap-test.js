@@ -33,7 +33,7 @@ const entriesList = [
   ["DetailsRole", expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {name: 'details',},},],type: 'structure',})],
   ["DialogRole", expect.objectContaining({relatedConcepts: [{module: 'ARIA',concept: {name: 'dialog',},},{module: 'HTML',concept: {name: 'dialog',},},],type: 'window',})],
   ["DirectoryRole", expect.objectContaining({relatedConcepts: [{module: 'ARIA',concept: {name: 'directory',},},{module: 'HTML',concept: {name: 'dir',},},],type: 'structure',})],
-  ["DisclosureTriangleRole", expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {attributes: [{name: 'open',value: 'open',},],constraints: ['scoped to a details element',],name: 'summary',},},{module: 'HTML',concept: {attributes: [{name: 'aria-expanded',},],constraints: ['scoped to a details element',],name: 'summary',},},],type: 'widget',})],
+  ["DisclosureTriangleRole", expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {constraints: ['scoped to a details element',],name: 'summary',},},],type: 'widget',})],
   ["DivRole", expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {name: 'div',},},],type: 'generic',})],
   ["DocumentRole", expect.objectContaining({relatedConcepts: [{module: 'ARIA',concept: {name: 'document',},},],type: 'structure',})],
   ["EmbeddedObjectRole", expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {name: 'embed',},},],type: 'widget',})],
@@ -220,7 +220,7 @@ describe('AXObjectsMap', function () {
       expect(AXObjectsMap.get("DetailsRole")).toEqual(expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {name: 'details',},},],type: 'structure',}),);
       expect(AXObjectsMap.get("DialogRole")).toEqual(expect.objectContaining({relatedConcepts: [{module: 'ARIA',concept: {name: 'dialog',},},{module: 'HTML',concept: {name: 'dialog',},},],type: 'window',}),);
       expect(AXObjectsMap.get("DirectoryRole")).toEqual(expect.objectContaining({relatedConcepts: [{module: 'ARIA',concept: {name: 'directory',},},{module: 'HTML',concept: {name: 'dir',},},],type: 'structure',}),);
-      expect(AXObjectsMap.get("DisclosureTriangleRole")).toEqual(expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {attributes: [{name: 'open',value: 'open',},],constraints: ['scoped to a details element',],name: 'summary',},},{module: 'HTML',concept: {attributes: [{name: 'aria-expanded',},],constraints: ['scoped to a details element',],name: 'summary',},},],type: 'widget',}),);
+      expect(AXObjectsMap.get("DisclosureTriangleRole")).toEqual(expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {constraints: ['scoped to a details element',],name: 'summary',},},],type: 'widget',}),);
       expect(AXObjectsMap.get("DivRole")).toEqual(expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {name: 'div',},},],type: 'generic',}),);
       expect(AXObjectsMap.get("DocumentRole")).toEqual(expect.objectContaining({relatedConcepts: [{module: 'ARIA',concept: {name: 'document',},},],type: 'structure',}),);
       expect(AXObjectsMap.get("EmbeddedObjectRole")).toEqual(expect.objectContaining({relatedConcepts: [{module: 'HTML',concept: {name: 'embed',},},],type: 'widget',}),);

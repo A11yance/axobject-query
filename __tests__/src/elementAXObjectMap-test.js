@@ -24,8 +24,7 @@ const entriesList = [
   [{"name": "details"}, ["DetailsRole"]],
   [{"name": "dialog"}, ["DialogRole"]],
   [{"name": "dir"}, ["DirectoryRole"]],
-  [{"attributes": [{"name": "open", "value": "open"}], "constraints": ["scoped to a details element"], "name": "summary"}, ["DisclosureTriangleRole"]],
-  [{"attributes": [{"name": "aria-expanded"}], "constraints": ["scoped to a details element"], "name": "summary"}, ["DisclosureTriangleRole"]],
+  [{"constraints": ["scoped to a details element"], "name": "summary"}, ["DisclosureTriangleRole"]],
   [{"name": "div"}, ["DivRole"]],
   [{"name": "embed"}, ["EmbeddedObjectRole"]],
   [{"name": "figcaption"}, ["FigcaptionRole"]],
@@ -85,7 +84,7 @@ describe('elementAXObjectMap', function () {
       expect(elementAXObjectMap[Symbol.iterator]).toBeDefined();
     });
     it('should have a specific length', function () {
-      expect([...elementAXObjectMap].length).toEqual(71);
+      expect([...elementAXObjectMap].length).toEqual(70);
     });
     describe('should support the spread operator', function () {
       test.each([...elementAXObjectMap])(`Testing role: '%s' with element %o`, (role, elements) => {
@@ -167,8 +166,7 @@ describe('elementAXObjectMap', function () {
       expect(elementAXObjectMap.get({"name": "details"})).toEqual(["DetailsRole"]);
       expect(elementAXObjectMap.get({"name": "dialog"})).toEqual(["DialogRole"]);
       expect(elementAXObjectMap.get({"name": "dir"})).toEqual(["DirectoryRole"]);
-      expect(elementAXObjectMap.get({"attributes": [{"name": "open", "value": "open"}], "name": "summary"})).toEqual(["DisclosureTriangleRole"]),
-      expect(elementAXObjectMap.get({"attributes": [{"name": "aria-expanded"}], "name": "summary"})).toEqual(["DisclosureTriangleRole"]),
+      expect(elementAXObjectMap.get({"constraints": ["scoped to a details element"], "name": "summary"})).toEqual(["DisclosureTriangleRole"]),
       expect(elementAXObjectMap.get({"name": "div"})).toEqual(["DivRole"]);
       expect(elementAXObjectMap.get({"name": "embed"})).toEqual(["EmbeddedObjectRole"]);
       expect(elementAXObjectMap.get({"name": "figcaption"})).toEqual(["FigcaptionRole"]);
