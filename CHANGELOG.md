@@ -99,3 +99,8 @@ Commit 22915be contains a substantial audit and update of the project to match t
 ## 3.2.1
 
   - f250e99 Update package-lock.json
+
+## 4.0.0
+
+  - b9b3e54 Remove the attribute information from the DisclosureTriangle concept
+  - 68bd6d2 Add prepublishOnly step to package.json
