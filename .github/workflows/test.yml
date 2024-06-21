@@ -11,9 +11,11 @@ jobs:
   tests:
     uses: ljharb/actions/.github/workflows/node.yml@main
     with:
-      range: '>= 0.4'
+      range: '>= 0.8'
       type: majors
-      command: npm run tests-only
+      build-command: npm run build:tests
+      build-output-dir: __tests-built__,lib
+      command: npm run tests-built
 
   flow:
     name: Flow type checking

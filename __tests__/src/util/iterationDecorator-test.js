@@ -2,7 +2,7 @@ import test from 'tape';
 import values from 'object.values';
 import mockProperty from 'mock-property';
 
-import iterationDecorator from '../../../src/util/iterationDecorator';
+import iterationDecorator from 'axobject-query/src/util/iterationDecorator';
 
 test('iterationDecorator', (t) => {
   t.test('adds a Symbol.iterator property to a collection', async (st) => {

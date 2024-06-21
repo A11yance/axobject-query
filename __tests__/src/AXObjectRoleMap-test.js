@@ -2,7 +2,7 @@ import test from 'tape';
 import deepEqual from 'deep-equal-json';
 import inspect from 'object-inspect';
 
-import AXObjectRoleMap from '../../src/AXObjectRoleMap';
+import AXObjectRoleMap from 'axobject-query/src/AXObjectRoleMap';
 
 const entriesList = [
   ["AlertDialogRole", [{"name": "alertdialog"}]],

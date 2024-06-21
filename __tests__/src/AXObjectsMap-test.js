@@ -2,7 +2,7 @@ import test from 'tape';
 import deepEqual from 'deep-equal-json';
 import inspect from 'object-inspect';
 
-import AXObjectsMap from '../../src/AXObjectsMap';
+import AXObjectsMap from 'axobject-query/src/AXObjectsMap';
 
 const entriesList = [
   ["AbbrRole", {relatedConcepts: [{module: 'HTML',concept: {name: 'abbr',},},],type: 'structure',}],

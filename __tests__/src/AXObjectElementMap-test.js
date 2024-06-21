@@ -2,7 +2,7 @@ import test from 'tape';
 import deepEqual from 'deep-equal-json';
 import inspect from 'object-inspect';
 
-import AXObjectElementMap from '../../src/AXObjectElementMap';
+import AXObjectElementMap from 'axobject-query/src/AXObjectElementMap';
 
 const entriesList = [
   ["AbbrRole", [{"name": "abbr"}]],

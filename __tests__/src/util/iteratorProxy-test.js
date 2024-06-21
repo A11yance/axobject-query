@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import iteratorProxy from '../../../src/util/iteratorProxy';
+import iteratorProxy from 'axobject-query/src/util/iteratorProxy';
 
 test('iteratorProxy', async (t) => {
   const arr = ['a', 'b', 'c'];
