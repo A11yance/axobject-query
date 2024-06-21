@@ -63,6 +63,9 @@
     "ie 11"
   ],
   "dependencies": {
-    "dequal": "^2.0.3"
+    "deep-equal-json": "^1.0.0"
+  },
+  "engines": {
+    "node": ">= 0.4"
   }
 }
