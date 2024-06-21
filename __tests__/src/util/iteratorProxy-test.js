@@ -1,13 +1,12 @@
-/* eslint-env mocha */
-import expect from 'expect';
+import test from 'tape';
+
 import iteratorProxy from '../../../src/util/iteratorProxy';
 
-describe('iteratorProxy', function () {
-  it('should create an iterator for the bound array', function () {
-    const arr = ['a', 'b', 'c'];
-    const iter = {
-      [Symbol.iterator]: iteratorProxy.bind(arr)
-    };
-    expect([...iter]).toEqual(expect.arrayContaining(arr));
-  });
+test('iteratorProxy', async (t) => {
+  const arr = ['a', 'b', 'c'];
+  const iter = {
+    [Symbol.iterator]: iteratorProxy.bind(arr)
+  };
+
+  t.deepEqual([...iter], arr, 'creates an iterator for the bound array');
 });

@@ -1,5 +1,7 @@
-/* eslint-env mocha */
-import expect from 'expect';
+import test from 'tape';
+import deepEqual from 'deep-equal-json';
+import inspect from 'object-inspect';
+
 import AXObjectRoleMap from '../../src/AXObjectRoleMap';
 
 const entriesList = [
@@ -75,47 +77,50 @@ const entriesList = [
   ["UserInterfaceTooltipRole", [{"name": "tooltip"}]],
 ];
 
-describe('AXObjectRoleMap', function () {
-  describe('iteration', function () {
-    it('should have an iterator defined', function () {
-      expect(AXObjectRoleMap[Symbol.iterator]).not.toBeUndefined();
-    });
-    it('should have a specific length', function () {
-      expect([...AXObjectRoleMap].length).toEqual(70);
-    });
-    describe('should support the spread operator', function () {
-      test.each([...AXObjectRoleMap])(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+test('AXObjectRoleMap', async (t) => {
+  t.test('iteration', async (st) => {
+    st.notEqual(AXObjectRoleMap[Symbol.iterator], undefined, 'has an iterator defined');
+    st.equal([...AXObjectRoleMap].length, 70, 'has a specific length');
+
+    st.test('supports the spread operator', async (s2t) => {
+      [...AXObjectRoleMap].forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `spread has role: ${role}`);
       });
     });
-    describe('should support the for..of pattern', function () {
+
+    st.test('supports the for..of pattern', async (s2t) => {
       const output = [];
       for (const [key, value] of AXObjectRoleMap) {
         output.push([key, value]);
       }
-      test.each(output)(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+
+      output.forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `for-of has role: ${role}`);
       });
     });
   });
-  describe('content', function () {
-    describe('entries(), iteration', function () {
-      test.each([...AXObjectRoleMap.entries()])(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
-      });
-      test.each([...AXObjectRoleMap.entries()])(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+
+  t.test('content', async (st) => {
+    st.test('entries(), iteration', async (s2t) => {
+      for (const [role, elements] of AXObjectRoleMap.entries()) {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `for-of has role: ${role}`);
+      }
+
+
+      [...AXObjectRoleMap.entries()].forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `spread has role: ${role}`);
       });
     });
-    describe('forEach()', function () {
+
+    st.test('forEach()', async (s2t) => {
       const output = [];
       let context;
       AXObjectRoleMap.forEach((value, key, map) => {
@@ -124,116 +129,126 @@ describe('AXObjectRoleMap', function () {
           context = map;
         }
       });
-      test.each(output)(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+
+      output.forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `output has role: ${role}`);
       });
-      test.each(context)(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+
+      context.forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `context has role: ${role}`);
       });
     });
-    it('get()', function () {
-      expect(AXObjectRoleMap.get("AlertDialogRole")).toEqual([{"name": "alertdialog"}]);
-      expect(AXObjectRoleMap.get("AlertRole")).toEqual([{"name": "alert"}]);
-      expect(AXObjectRoleMap.get("ApplicationRole")).toEqual([{"name": "application"}]);
-      expect(AXObjectRoleMap.get("ArticleRole")).toEqual([{"name": "article"}]);
-      expect(AXObjectRoleMap.get("BannerRole")).toEqual([{"name": "banner"}]);
-      expect(AXObjectRoleMap.get("BusyIndicatorRole")).toEqual([{"attributes": [{"name": "aria-busy", "value": "true"}]}]);
-      expect(AXObjectRoleMap.get("ButtonRole")).toEqual([{"name": "button"}]);
-      expect(AXObjectRoleMap.get("CellRole")).toEqual([{"name": "cell"}, {"name": "gridcell"}]);
-      expect(AXObjectRoleMap.get("CheckBoxRole")).toEqual([{"name": "checkbox"}]);
-      expect(AXObjectRoleMap.get("ColumnHeaderRole")).toEqual([{"name": "columnheader"}]);
-      expect(AXObjectRoleMap.get("ComboBoxRole")).toEqual([{"name": "combobox"}]);
-      expect(AXObjectRoleMap.get("ComplementaryRole")).toEqual([{"name": "complementary"}]);
-      expect(AXObjectRoleMap.get("ContentInfoRole")).toEqual([{"name": "structureinfo"}]);
-      expect(AXObjectRoleMap.get("DialogRole")).toEqual([{"name": "dialog"}]);
-      expect(AXObjectRoleMap.get("DirectoryRole")).toEqual([{"name": "directory"}]);
-      expect(AXObjectRoleMap.get("DocumentRole")).toEqual([{"name": "document"}]);
-      expect(AXObjectRoleMap.get("FeedRole")).toEqual([{"name": "feed"}]);
-      expect(AXObjectRoleMap.get("FigureRole")).toEqual([{"name": "figure"}]);
-      expect(AXObjectRoleMap.get("FormRole")).toEqual([{"name": "form"}]);
-      expect(AXObjectRoleMap.get("GridRole")).toEqual([{"name": "grid"}]);
-      expect(AXObjectRoleMap.get("GroupRole")).toEqual([{"name": "group"}]);
-      expect(AXObjectRoleMap.get("HeadingRole")).toEqual([{"name": "heading"}]);
-      expect(AXObjectRoleMap.get("ImageRole")).toEqual([{"name": "img"}]);
-      expect(AXObjectRoleMap.get("LinkRole")).toEqual([{"name": "link"}]);
-      expect(AXObjectRoleMap.get("ListBoxOptionRole")).toEqual([{"name": "option"}]);
-      expect(AXObjectRoleMap.get("ListBoxRole")).toEqual([{"name": "listbox"}]);
-      expect(AXObjectRoleMap.get("ListItemRole")).toEqual([{"name": "listitem"}]);
-      expect(AXObjectRoleMap.get("ListRole")).toEqual([{"name": "list"}]);
-      expect(AXObjectRoleMap.get("LogRole")).toEqual([{"name": "log"}]);
-      expect(AXObjectRoleMap.get("MainRole")).toEqual([{"name": "main"}]);
-      expect(AXObjectRoleMap.get("MarqueeRole")).toEqual([{"name": "marquee"}]);
-      expect(AXObjectRoleMap.get("MathRole")).toEqual([{"name": "math"}]);
-      expect(AXObjectRoleMap.get("MenuBarRole")).toEqual([{"name": "menubar"}]);
-      expect(AXObjectRoleMap.get("MenuItemRole")).toEqual([{"name": "menuitem"}]);
-      expect(AXObjectRoleMap.get("MenuItemCheckBoxRole")).toEqual([{"name": "menuitemcheckbox"}]);
-      expect(AXObjectRoleMap.get("MenuItemRadioRole")).toEqual([{"name": "menuitemradio"}]);
-      expect(AXObjectRoleMap.get("MenuRole")).toEqual([{"name": "menu"}]);
-      expect(AXObjectRoleMap.get("NavigationRole")).toEqual([{"name": "navigation"}]);
-      expect(AXObjectRoleMap.get("NoneRole")).toEqual([{"name": "none"}]);
-      expect(AXObjectRoleMap.get("NoteRole")).toEqual([{"name": "note"}]);
-      expect(AXObjectRoleMap.get("PresentationalRole")).toEqual([{"name": "presentation"}]);
-      expect(AXObjectRoleMap.get("ProgressIndicatorRole")).toEqual([{"name": "progressbar"}]);
-      expect(AXObjectRoleMap.get("RadioButtonRole")).toEqual([{"name": "radio"}]);
-      expect(AXObjectRoleMap.get("RadioGroupRole")).toEqual([{"name": "radiogroup"}]);
-      expect(AXObjectRoleMap.get("RegionRole")).toEqual([{"name": "region"}]);
-      expect(AXObjectRoleMap.get("RowHeaderRole")).toEqual([{"name": "rowheader"}]);
-      expect(AXObjectRoleMap.get("RowRole")).toEqual([{"name": "row"}]);
-      expect(AXObjectRoleMap.get("ScrollBarRole")).toEqual([{"name": "scrollbar"}]);
-      expect(AXObjectRoleMap.get("SearchRole")).toEqual([{"name": "search"}]);
-      expect(AXObjectRoleMap.get("SearchBoxRole")).toEqual([{"name": "searchbox"}]);
-      expect(AXObjectRoleMap.get("SliderRole")).toEqual([{"name": "slider"}]);
-      expect(AXObjectRoleMap.get("SpinButtonRole")).toEqual([{"name": "spinbutton"}]);
-      expect(AXObjectRoleMap.get("SplitterRole")).toEqual([{"name": "separator"}]);
-      expect(AXObjectRoleMap.get("StatusRole")).toEqual([{"name": "status"}]);
-      expect(AXObjectRoleMap.get("SwitchRole")).toEqual([{"name": "switch"}]);
-      expect(AXObjectRoleMap.get("TabGroupRole")).toEqual([{"name": "tablist"}]);
-      expect(AXObjectRoleMap.get("TabRole")).toEqual([{"name": "tab"}]);
-      expect(AXObjectRoleMap.get("TableRole")).toEqual([{"name": "table"}]);
-      expect(AXObjectRoleMap.get("TabListRole")).toEqual([{"name": "tablist"}]);
-      expect(AXObjectRoleMap.get("TabPanelRole")).toEqual([{"name": "tabpanel"}]);
-      expect(AXObjectRoleMap.get("TermRole")).toEqual([{"name": "term"}]);
-      expect(AXObjectRoleMap.get("TextAreaRole")).toEqual([{"attributes": [{"name": "aria-multiline", "value": "true"}], "name": "textbox"}]);
-      expect(AXObjectRoleMap.get("TextFieldRole")).toEqual([{"name": "textbox"}]);
-      expect(AXObjectRoleMap.get("TimerRole")).toEqual([{"name": "timer"}]);
-      expect(AXObjectRoleMap.get("ToggleButtonRole")).toEqual([{"attributes": [{"name": "aria-pressed"}]}]);
-      expect(AXObjectRoleMap.get("ToolbarRole")).toEqual([{"name": "toolbar"}]);
-      expect(AXObjectRoleMap.get("TreeRole")).toEqual([{"name": "tree"}]);
-      expect(AXObjectRoleMap.get("TreeGridRole")).toEqual([{"name": "treegrid"}]);
-      expect(AXObjectRoleMap.get("TreeItemRole")).toEqual([{"name": "treeitem"}]);
-      expect(AXObjectRoleMap.get("UserInterfaceTooltipRole")).toEqual([{"name": "tooltip"}]);
+
+    st.test('get()', async (s2t) => {
+      s2t.deepEqual(AXObjectRoleMap.get("AlertDialogRole"), [{"name": "alertdialog"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("AlertRole"), [{"name": "alert"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ApplicationRole"), [{"name": "application"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ArticleRole"), [{"name": "article"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("BannerRole"), [{"name": "banner"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("BusyIndicatorRole"), [{"attributes": [{"name": "aria-busy", "value": "true"}]}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ButtonRole"), [{"name": "button"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("CellRole"), [{"name": "cell"}, {"name": "gridcell"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("CheckBoxRole"), [{"name": "checkbox"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ColumnHeaderRole"), [{"name": "columnheader"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ComboBoxRole"), [{"name": "combobox"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ComplementaryRole"), [{"name": "complementary"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ContentInfoRole"), [{"name": "structureinfo"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("DialogRole"), [{"name": "dialog"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("DirectoryRole"), [{"name": "directory"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("DocumentRole"), [{"name": "document"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("FeedRole"), [{"name": "feed"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("FigureRole"), [{"name": "figure"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("FormRole"), [{"name": "form"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("GridRole"), [{"name": "grid"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("GroupRole"), [{"name": "group"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("HeadingRole"), [{"name": "heading"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ImageRole"), [{"name": "img"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("LinkRole"), [{"name": "link"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ListBoxOptionRole"), [{"name": "option"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ListBoxRole"), [{"name": "listbox"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ListItemRole"), [{"name": "listitem"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ListRole"), [{"name": "list"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("LogRole"), [{"name": "log"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("MainRole"), [{"name": "main"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("MarqueeRole"), [{"name": "marquee"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("MathRole"), [{"name": "math"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("MenuBarRole"), [{"name": "menubar"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("MenuItemRole"), [{"name": "menuitem"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("MenuItemCheckBoxRole"), [{"name": "menuitemcheckbox"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("MenuItemRadioRole"), [{"name": "menuitemradio"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("MenuRole"), [{"name": "menu"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("NavigationRole"), [{"name": "navigation"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("NoneRole"), [{"name": "none"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("NoteRole"), [{"name": "note"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("PresentationalRole"), [{"name": "presentation"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ProgressIndicatorRole"), [{"name": "progressbar"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("RadioButtonRole"), [{"name": "radio"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("RadioGroupRole"), [{"name": "radiogroup"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("RegionRole"), [{"name": "region"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("RowHeaderRole"), [{"name": "rowheader"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("RowRole"), [{"name": "row"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ScrollBarRole"), [{"name": "scrollbar"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("SearchRole"), [{"name": "search"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("SearchBoxRole"), [{"name": "searchbox"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("SliderRole"), [{"name": "slider"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("SpinButtonRole"), [{"name": "spinbutton"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("SplitterRole"), [{"name": "separator"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("StatusRole"), [{"name": "status"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("SwitchRole"), [{"name": "switch"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TabGroupRole"), [{"name": "tablist"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TabRole"), [{"name": "tab"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TableRole"), [{"name": "table"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TabListRole"), [{"name": "tablist"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TabPanelRole"), [{"name": "tabpanel"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TermRole"), [{"name": "term"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TextAreaRole"), [{"attributes": [{"name": "aria-multiline", "value": "true"}], "name": "textbox"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TextFieldRole"), [{"name": "textbox"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TimerRole"), [{"name": "timer"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ToggleButtonRole"), [{"attributes": [{"name": "aria-pressed"}]}]);
+      s2t.deepEqual(AXObjectRoleMap.get("ToolbarRole"), [{"name": "toolbar"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TreeRole"), [{"name": "tree"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TreeGridRole"), [{"name": "treegrid"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("TreeItemRole"), [{"name": "treeitem"}]);
+      s2t.deepEqual(AXObjectRoleMap.get("UserInterfaceTooltipRole"), [{"name": "tooltip"}]);
     });
-    it('has()', function () {
-      expect(AXObjectRoleMap.has('DialogRole')).toEqual(true);
-      expect(AXObjectRoleMap.has('DoveRole')).toEqual(false);
+
+    st.test('has()', (s2t) => {
+      s2t.equal(AXObjectRoleMap.has('DialogRole'), true);
+      s2t.equal(AXObjectRoleMap.has('DoveRole'), false);
+
+      s2t.end();
     });
-    describe('keys(), iteration', function () {
+
+    st.test('keys(), iteration', async (s2t) => {
       const entriesKeys = entriesList.map(entry => entry[0]);
-      test.each(AXObjectRoleMap.keys())('Testing key: %o', (key) => {
-        expect(entriesKeys).toEqual(
-          expect.arrayContaining([key]),
-        );
-      });
-      test.each([...AXObjectRoleMap.keys()])('Testing key: %o', (key) => {
-        expect(entriesKeys).toEqual(
-          expect.arrayContaining([key]),
-        );
+      for (const key of AXObjectRoleMap.keys()) {
+        s2t.ok(entriesKeys.find((k) => k === key), `for-of has key: ${key}`);
+      }
+
+      [...AXObjectRoleMap.keys()].forEach(([key]) => {
+          s2t.ok(entriesKeys.find(([k]) => k === key), `spread has key: ${key}`);
       });
     });
-    describe('values(), iteration', function () {
-      const entriesValues = entriesList.map(entry => entry[1]);
-      test.each(AXObjectRoleMap.values().map(value => [value]))('Testing value: %o', (value) => {
-        expect(entriesValues).toEqual(
-          expect.arrayContaining([value]),
+
+
+    st.test('values(), iteration', async (s2t) => {
+      const entriesValues = entriesList.map(([, values]) => values);
+      
+      for (const values of AXObjectRoleMap.values()) {
+        s2t.ok(
+          entriesValues.some((vs) => deepEqual(values, vs)),
+          `for-of has values: ${inspect(values)}`
         );
-      });
-      test.each([...AXObjectRoleMap.values()].map(value => [value]))('Testing value: %o', (value) => {
-        expect(entriesValues).toEqual(
-          expect.arrayContaining([value]),
+      }
+
+      [...AXObjectRoleMap.values()].forEach((values) => {
+        s2t.ok(
+          entriesValues.some((vs) => deepEqual(values, vs)),
+          `spread has values: ${inspect(values)}`
         );
       });
     });

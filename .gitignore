@@ -2,3 +2,5 @@ node_modules/
 lib/
 reports/
 docs/
+.nyc_output/
+coverage/
