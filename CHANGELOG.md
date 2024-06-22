@@ -102,5 +102,7 @@ Commit 22915be contains a substantial audit and update of the project to match t
 
 ## 4.0.0
 
+This major release requires Node 6+.
+
   - b9b3e54 Remove the attribute information from the DisclosureTriangle concept
   - 68bd6d2 Add prepublishOnly step to package.json
