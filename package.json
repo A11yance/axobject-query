@@ -64,6 +64,5 @@
     "ie 11"
   ],
   "dependencies": {
-    "dequal": "^2.0.3"
   }
 }
