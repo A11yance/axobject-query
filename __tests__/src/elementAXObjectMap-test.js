@@ -85,7 +85,7 @@ test('elementAXObjectMap', async (t) => {
     t.test('iteration', (st) => {
 
     st.notEqual(elementAXObjectMap[Symbol.iterator], undefined, 'has an iterator defined');
-    st.equal([...elementAXObjectMap].length, 70, 'has a specific length');
+    st.equal([...elementAXObjectMap].length, 71, 'has a specific length');
 
     st.test('supports the spread operator', async (s2t) => {
       [...elementAXObjectMap].forEach(([role, elements]) => {

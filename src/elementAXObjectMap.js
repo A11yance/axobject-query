@@ -2,7 +2,6 @@
  * @flow
  */
 
-import deepEqual from 'deep-equal-json';
 import AXObjects from './AXObjectsMap';
 import iterationDecorator from './util/iterationDecorator';
 
@@ -48,6 +47,32 @@ for (let [name, def] of AXObjects.entries()) {
   }
 }
 
+function deepAxObjectModelRelationshipConceptAttributeCheck(a?: Array<AXObjectModelRelationConceptAttribute>, b?: Array<AXObjectModelRelationConceptAttribute>) {
+  if (a === undefined && b !== undefined) {
+    return false;
+  }
+
+  if (a !== undefined && b === undefined) {
+    return false;
+  }
+
+  if (a !== undefined && b !== undefined) {
+    if (a.length != b.length) {
+      return false;
+    }
+
+    // dequal checks position equality
+    // https://github.com/lukeed/dequal/blob/5ecd990c4c055c4658c64b4bdfc170f219604eea/src/index.js#L17-L22
+    for (let i = 0; i < a.length; i++)  {
+      if (b[i].name !== a[i].name || b[i].value !== a[i].value) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
 const elementAXObjectMap: TAXObjectQueryMap<
   TElementAXObjects,
   AXObjectModelRelationConcept,
@@ -66,7 +91,7 @@ const elementAXObjectMap: TAXObjectQueryMap<
   },
   get: function (key: AXObjectModelRelationConcept): ?Array<AXObjectName> {
     const item = elementAXObjects.find(tuple => (
-      key.name === tuple[0].name && deepEqual(key.attributes, tuple[0].attributes)
+      key.name === tuple[0].name && deepAxObjectModelRelationshipConceptAttributeCheck(key.attributes, tuple[0].attributes)
     ));
     return item && item[1];
   },
