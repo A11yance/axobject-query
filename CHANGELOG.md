@@ -109,3 +109,7 @@ This release restores backwards compatibility that was broken in v3.2.0.
 ## 3.2.3
 
   - b14728f Remove deep-equal-json as a dep from the project (#357)
+
+## 3.2.4
+
+  - 93366fa [meta] add `prepack` step so build is not forgotten
