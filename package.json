@@ -15,7 +15,8 @@
     "test": "npm run tests-only",
     "build:tests": "npm run build && rimraf __tests-built__ && babel __tests__ --out-dir __tests-built__",
     "tests-built": "nyc tape '__tests-built__/**/*.js'",
-    "tests-only": "nyc tape -r @babel/register '__tests__/**/*.js'"
+    "tests-only": "nyc tape -r @babel/register '__tests__/**/*.js'",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
