@@ -1,6 +1,8 @@
-/* eslint-env mocha */
-import expect from 'expect';
-import AXObjectElementMap from '../../src/AXObjectElementMap';
+import test from 'tape';
+import inspect from 'object-inspect';
+import deepEqual from 'deep-equal-json';
+
+import AXObjectElementMap from 'axobject-query/src/AXObjectElementMap';
 
 const entriesList = [
   ["AbbrRole", [{"name": "abbr"}]],
@@ -70,47 +72,50 @@ const entriesList = [
   ["VideoRole", [{"name": "video"}]],
 ];
 
-describe('AXObjectElementMap', function () {
-  describe('iteration', function () {
-    it('should have an iterator defined', function () {
-      expect(AXObjectElementMap[Symbol.iterator]).not.toBeUndefined();
-    });
-    it('should have a specific length', function () {
-      expect([...AXObjectElementMap].length).toEqual(65);
-    });
-    describe('should support the spread operator', function () {
-      test.each([...AXObjectElementMap])(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+test('AXObjectElementMap', async (t) => {
+  t.test('iteration', async (st) => {
+    st.notEqual(AXObjectElementMap[Symbol.iterator], undefined, 'has an iterator defined');
+    st.equal([...AXObjectElementMap].length, 65, 'has a specific length');
+
+    st.test('supports the spread operator', async (s2t) => {
+      [...AXObjectElementMap].forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `spread has role: ${role}`);
       });
     });
-    describe('should support the for..of pattern', function () {
+
+    st.test('supports the for..of pattern', async (s2t) => {
       const output = [];
       for (const [key, value] of AXObjectElementMap) {
         output.push([key, value]);
       }
-      test.each(output)(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+
+      output.forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `for-of has role: ${role}`);
       });
     });
   });
-  describe('content', function () {
-    describe('entries(), iteration', function () {
-      test.each(AXObjectElementMap.entries())(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
-      });
-      test.each([...AXObjectElementMap.entries()])(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+
+  t.test('content', async (st) => {
+    st.test('entries(), iteration', async (s2t) => {
+      for (const [role, elements] of AXObjectElementMap.entries()) {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `for-of has role: ${role}`);
+      }
+
+
+      [...AXObjectElementMap.entries()].forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `spread has role: ${role}`);
       });
     });
-    describe('forEach()', function () {
+
+    st.test('forEach()', async (s2t) => {
       const output = [];
       let context;
       AXObjectElementMap.forEach((value, key, map) => {
@@ -119,111 +124,120 @@ describe('AXObjectElementMap', function () {
           context = map;
         }
       });
-      test.each(output)(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+
+      output.forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `output has role: ${role}`);
       });
-      test.each(context)(`Testing role: '%s' with element %o`, (role, elements) => {
-        expect(entriesList).toEqual(
-          expect.arrayContaining([[role, elements]]),
-        );
+
+      context.forEach(([role, elements]) => {
+        const found = entriesList.find(([r]) => r === role);
+
+        s2t.deepEqual(found, [role, elements], `context has role: ${role}`);
       });
     });
-    it('get()', function () {
-      expect(AXObjectElementMap.get("AbbrRole")).toEqual([{"name": "abbr"}]);
-      expect(AXObjectElementMap.get("ArticleRole")).toEqual([{"name": "article"}]);
-      expect(AXObjectElementMap.get("AudioRole")).toEqual([{"name": "audio"}]);
-      expect(AXObjectElementMap.get("BlockquoteRole")).toEqual([{"name": "blockquote"}]);
-      expect(AXObjectElementMap.get("ButtonRole")).toEqual([{"name": "button"}]);
-      expect(AXObjectElementMap.get("CanvasRole")).toEqual([{"name": "canvas"}]);
-      expect(AXObjectElementMap.get("CaptionRole")).toEqual([{"name": "caption"}]);
-      expect(AXObjectElementMap.get("CellRole")).toEqual([{"name": "td"}]);
-      expect(AXObjectElementMap.get("CheckBoxRole")).toEqual([{"attributes": [{"name": "type", "value": "checkbox"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("ColorWellRole")).toEqual([{"attributes": [{"name": "type", "value": "color"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("ColumnHeaderRole")).toEqual([{"name": "th"}]);
-      expect(AXObjectElementMap.get("ComboBoxRole")).toEqual([{"name": "select"}]);
-      expect(AXObjectElementMap.get("DateRole")).toEqual([{"attributes": [{"name": "type", "value": "date"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("DateTimeRole")).toEqual([{"attributes": [{"name": "type", "value": "datetime"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("DefinitionRole")).toEqual([{"name": "dfn"}]);
-      expect(AXObjectElementMap.get("DescriptionListDetailRole")).toEqual([{"name": "dd"}]);
-      expect(AXObjectElementMap.get("DescriptionListRole")).toEqual([{"name": "dl"}]);
-      expect(AXObjectElementMap.get("DescriptionListTermRole")).toEqual([{"name": "dt"}]);
-      expect(AXObjectElementMap.get("DetailsRole")).toEqual([{"name": "details"}]);
-      expect(AXObjectElementMap.get("DialogRole")).toEqual([{"name": "dialog"}]);
-      expect(AXObjectElementMap.get("DirectoryRole")).toEqual([{"name": "dir"}]);
-      expect(AXObjectElementMap.get("DisclosureTriangleRole")).toEqual([{"constraints": ["scoped to a details element"], "name": "summary"}]);
-      expect(AXObjectElementMap.get("DivRole")).toEqual([{"name": "div"}]);
-      expect(AXObjectElementMap.get("EmbeddedObjectRole")).toEqual([{"name": "embed"}]);
-      expect(AXObjectElementMap.get("FigcaptionRole")).toEqual([{"name": "figcaption"}]);
-      expect(AXObjectElementMap.get("FigureRole")).toEqual([{"name": "figure"}]);
-      expect(AXObjectElementMap.get("FooterRole")).toEqual([{"name": "footer"}]);
-      expect(AXObjectElementMap.get("FormRole")).toEqual([{"name": "form"}]);
-      expect(AXObjectElementMap.get("HeadingRole")).toEqual([{"name": "h1"}, {"name": "h2"}, {"name": "h3"}, {"name": "h4"}, {"name": "h5"}, {"name": "h6"}]);
-      expect(AXObjectElementMap.get("IframeRole")).toEqual([{"name": "iframe"}]);
-      expect(AXObjectElementMap.get("ImageMapRole")).toEqual([{"attributes": [{"name": "usemap"}], "name": "img"}]);
-      expect(AXObjectElementMap.get("ImageRole")).toEqual([{"name": "img"}]);
-      expect(AXObjectElementMap.get("InlineTextBoxRole")).toEqual([{"name": "input"}]);
-      expect(AXObjectElementMap.get("InputTimeRole")).toEqual([{"attributes": [{"name": "type", "value": "time"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("LabelRole")).toEqual([{"name": "label"}]);
-      expect(AXObjectElementMap.get("LegendRole")).toEqual([{"name": "legend"}]);
-      expect(AXObjectElementMap.get("LineBreakRole")).toEqual([{"name": "br"}]);
-      expect(AXObjectElementMap.get("LinkRole")).toEqual([{"attributes": [{"name": "href"}], "name": "a"}]);
-      expect(AXObjectElementMap.get("ListBoxOptionRole")).toEqual([{"name": "option"}]);
-      expect(AXObjectElementMap.get("ListBoxRole")).toEqual([{"name": "datalist"}, {"name": "select"}]);
-      expect(AXObjectElementMap.get("ListItemRole")).toEqual([{"name": "li"}]);
-      expect(AXObjectElementMap.get("ListRole")).toEqual([{"name": "ul"}, {"name": "ol"}]);
-      expect(AXObjectElementMap.get("MainRole")).toEqual([{"name": "main"}]);
-      expect(AXObjectElementMap.get("MarkRole")).toEqual([{"name": "mark"}]);
-      expect(AXObjectElementMap.get("MarqueeRole")).toEqual([{"name": "marquee"}]);
-      expect(AXObjectElementMap.get("MenuItemRole")).toEqual([{"name": "menuitem"}]);
-      expect(AXObjectElementMap.get("MenuRole")).toEqual([{"name": "menu"}]);
-      expect(AXObjectElementMap.get("MeterRole")).toEqual([{"name": "meter"}]);
-      expect(AXObjectElementMap.get("NavigationRole")).toEqual([{"name": "nav"}]);
-      expect(AXObjectElementMap.get("ParagraphRole")).toEqual([{"name": "p"}]);
-      expect(AXObjectElementMap.get("PreRole")).toEqual([{"name": "pre"}]);
-      expect(AXObjectElementMap.get("ProgressIndicatorRole")).toEqual([{"name": "progress"}]);
-      expect(AXObjectElementMap.get("RadioButtonRole")).toEqual([{"attributes": [{"name": "type", "value": "radio"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("RowHeaderRole")).toEqual([{"attributes": [{"name": "scope", "value": "row"}], "name": "th"}]);
-      expect(AXObjectElementMap.get("RowRole")).toEqual([{"name": "tr"}]);
-      expect(AXObjectElementMap.get("RubyRole")).toEqual([{"name": "ruby"}]);
-      expect(AXObjectElementMap.get("SearchBoxRole")).toEqual([{"attributes": [{"name": "type", "value": "search"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("SliderRole")).toEqual([{"attributes": [{"name": "type", "value": "range"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("SpinButtonRole")).toEqual([{"attributes": [{"name": "type", "value": "number"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("SwitchRole")).toEqual([{"attributes": [{"name": "type", "value": "checkbox"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("TableRole")).toEqual([{"name": "table"}]);
-      expect(AXObjectElementMap.get("TextAreaRole")).toEqual([{"name": "textarea"}]),
-      expect(AXObjectElementMap.get("TextFieldRole")).toEqual([{"name": "input"}, {"attributes": [{"name": "type", "value": "text"}], "name": "input"}]);
-      expect(AXObjectElementMap.get("TimeRole")).toEqual([{"name": "time"}]);
-      expect(AXObjectElementMap.get("VideoRole")).toEqual([{"name": "video"}]);
+
+    st.test('get()', async (s2t) => {
+      s2t.deepEqual(AXObjectElementMap.get("AbbrRole"), [{"name": "abbr"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ArticleRole"), [{"name": "article"}]);
+      s2t.deepEqual(AXObjectElementMap.get("AudioRole"), [{"name": "audio"}]);
+      s2t.deepEqual(AXObjectElementMap.get("BlockquoteRole"), [{"name": "blockquote"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ButtonRole"), [{"name": "button"}]);
+      s2t.deepEqual(AXObjectElementMap.get("CanvasRole"), [{"name": "canvas"}]);
+      s2t.deepEqual(AXObjectElementMap.get("CaptionRole"), [{"name": "caption"}]);
+      s2t.deepEqual(AXObjectElementMap.get("CellRole"), [{"name": "td"}]);
+      s2t.deepEqual(AXObjectElementMap.get("CheckBoxRole"), [{"attributes": [{"name": "type", "value": "checkbox"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ColorWellRole"), [{"attributes": [{"name": "type", "value": "color"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ColumnHeaderRole"), [{"name": "th"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ComboBoxRole"), [{"name": "select"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DateRole"), [{"attributes": [{"name": "type", "value": "date"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DateTimeRole"), [{"attributes": [{"name": "type", "value": "datetime"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DefinitionRole"), [{"name": "dfn"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DescriptionListDetailRole"), [{"name": "dd"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DescriptionListRole"), [{"name": "dl"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DescriptionListTermRole"), [{"name": "dt"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DetailsRole"), [{"name": "details"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DialogRole"), [{"name": "dialog"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DirectoryRole"), [{"name": "dir"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DisclosureTriangleRole"), [{"constraints": ["scoped to a details element"], "name": "summary"}]);
+      s2t.deepEqual(AXObjectElementMap.get("DivRole"), [{"name": "div"}]);
+      s2t.deepEqual(AXObjectElementMap.get("EmbeddedObjectRole"), [{"name": "embed"}]);
+      s2t.deepEqual(AXObjectElementMap.get("FigcaptionRole"), [{"name": "figcaption"}]);
+      s2t.deepEqual(AXObjectElementMap.get("FigureRole"), [{"name": "figure"}]);
+      s2t.deepEqual(AXObjectElementMap.get("FooterRole"), [{"name": "footer"}]);
+      s2t.deepEqual(AXObjectElementMap.get("FormRole"), [{"name": "form"}]);
+      s2t.deepEqual(AXObjectElementMap.get("HeadingRole"), [{"name": "h1"}, {"name": "h2"}, {"name": "h3"}, {"name": "h4"}, {"name": "h5"}, {"name": "h6"}]);
+      s2t.deepEqual(AXObjectElementMap.get("IframeRole"), [{"name": "iframe"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ImageMapRole"), [{"attributes": [{"name": "usemap"}], "name": "img"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ImageRole"), [{"name": "img"}]);
+      s2t.deepEqual(AXObjectElementMap.get("InlineTextBoxRole"), [{"name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("InputTimeRole"), [{"attributes": [{"name": "type", "value": "time"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("LabelRole"), [{"name": "label"}]);
+      s2t.deepEqual(AXObjectElementMap.get("LegendRole"), [{"name": "legend"}]);
+      s2t.deepEqual(AXObjectElementMap.get("LineBreakRole"), [{"name": "br"}]);
+      s2t.deepEqual(AXObjectElementMap.get("LinkRole"), [{"attributes": [{"name": "href"}], "name": "a"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ListBoxOptionRole"), [{"name": "option"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ListBoxRole"), [{"name": "datalist"}, {"name": "select"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ListItemRole"), [{"name": "li"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ListRole"), [{"name": "ul"}, {"name": "ol"}]);
+      s2t.deepEqual(AXObjectElementMap.get("MainRole"), [{"name": "main"}]);
+      s2t.deepEqual(AXObjectElementMap.get("MarkRole"), [{"name": "mark"}]);
+      s2t.deepEqual(AXObjectElementMap.get("MarqueeRole"), [{"name": "marquee"}]);
+      s2t.deepEqual(AXObjectElementMap.get("MenuItemRole"), [{"name": "menuitem"}]);
+      s2t.deepEqual(AXObjectElementMap.get("MenuRole"), [{"name": "menu"}]);
+      s2t.deepEqual(AXObjectElementMap.get("MeterRole"), [{"name": "meter"}]);
+      s2t.deepEqual(AXObjectElementMap.get("NavigationRole"), [{"name": "nav"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ParagraphRole"), [{"name": "p"}]);
+      s2t.deepEqual(AXObjectElementMap.get("PreRole"), [{"name": "pre"}]);
+      s2t.deepEqual(AXObjectElementMap.get("ProgressIndicatorRole"), [{"name": "progress"}]);
+      s2t.deepEqual(AXObjectElementMap.get("RadioButtonRole"), [{"attributes": [{"name": "type", "value": "radio"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("RowHeaderRole"), [{"attributes": [{"name": "scope", "value": "row"}], "name": "th"}]);
+      s2t.deepEqual(AXObjectElementMap.get("RowRole"), [{"name": "tr"}]);
+      s2t.deepEqual(AXObjectElementMap.get("RubyRole"), [{"name": "ruby"}]);
+      s2t.deepEqual(AXObjectElementMap.get("SearchBoxRole"), [{"attributes": [{"name": "type", "value": "search"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("SliderRole"), [{"attributes": [{"name": "type", "value": "range"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("SpinButtonRole"), [{"attributes": [{"name": "type", "value": "number"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("SwitchRole"), [{"attributes": [{"name": "type", "value": "checkbox"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("TableRole"), [{"name": "table"}]);
+      s2t.deepEqual(AXObjectElementMap.get("TextAreaRole"), [{"name": "textarea"}]),
+      s2t.deepEqual(AXObjectElementMap.get("TextFieldRole"), [{"name": "input"}, {"attributes": [{"name": "type", "value": "text"}], "name": "input"}]);
+      s2t.deepEqual(AXObjectElementMap.get("TimeRole"), [{"name": "time"}]);
+      s2t.deepEqual(AXObjectElementMap.get("VideoRole"), [{"name": "video"}]);
     });
-    it('has()', function () {
-      expect(AXObjectElementMap.has('DivRole')).toEqual(true);
-      expect(AXObjectElementMap.has('DoveRole')).toEqual(false);
+
+    st.test('has()', (s2t) => {
+      s2t.equal(AXObjectElementMap.has('DivRole'), true);
+      s2t.equal(AXObjectElementMap.has('DoveRole'), false);
+
+      s2t.end();
     });
-    describe('keys(), iteration', function() {
+
+    st.test('keys(), iteration', async (s2t) => {
       const entriesKeys = entriesList.map(entry => entry[0]);
-      test.each(AXObjectElementMap.keys())('Testing key: %o', (key) => {
-        expect(entriesKeys).toEqual(
-          expect.arrayContaining([key]),
-        );
-      });
-      test.each([...AXObjectElementMap.keys()])('Testing key: %o', (key) => {
-        expect(entriesKeys).toEqual(
-          expect.arrayContaining([key]),
-        );
+      for (const key of AXObjectElementMap.keys()) {
+        s2t.ok(entriesKeys.find((k) => k === key), `for-of has key: ${key}`);
+      }
+
+      [...AXObjectElementMap.keys()].forEach(([key]) => {
+          s2t.ok(entriesKeys.find(([k]) => k === key), `spread has key: ${key}`);
       });
     });
-    describe('values(), iteration', function() {
-      const entriesValues = entriesList.map(entry => entry[1]);
-      test.each(AXObjectElementMap.values().map(value => [value]))('Testing value: %o', (value) => {
-        expect(entriesValues).toEqual(
-          expect.arrayContaining([value]),
+
+    st.test('values(), iteration', async (s2t) => {
+      const entriesValues = entriesList.map(([, values]) => values);
+      
+      for (const values of AXObjectElementMap.values()) {
+        s2t.ok(
+          entriesValues.some((vs) => deepEqual(values, vs)),
+          `for-of has values: ${inspect(values)}`
         );
-      });
-      test.each([...AXObjectElementMap.values()].map(value => [value]))('Testing value: %o', (value) => {
-        expect(entriesValues).toEqual(
-          expect.arrayContaining([value]),
+      }
+
+      [...AXObjectElementMap.values()].forEach((values) => {
+        s2t.ok(
+          entriesValues.some((vs) => deepEqual(values, vs)),
+          `spread has values: ${inspect(values)}`
         );
       });
     });

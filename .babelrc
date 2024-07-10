@@ -4,6 +4,28 @@
     "@babel/preset-flow"
   ],
   "plugins": [
-    "@babel/plugin-transform-flow-strip-types"
-  ]
+    "@babel/plugin-transform-flow-strip-types",
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        ["module-resolver", {
+          "root": ["./__tests__"],
+          "alias": {
+            "^axobject-query/src/(.*)": "./lib/\\1",
+          }
+        }]
+      ]
+    },
+    "development": {
+      "plugins": [
+        ["module-resolver", {
+          "root": ["./src"],
+          "alias": {
+            "^axobject-query/src/(.*)": "./src/\\1",
+          }
+        }]
+      ]
+    },
+  }
 }

@@ -100,6 +100,20 @@ Commit 22915be contains a substantial audit and update of the project to match t
 
   - f250e99 Update package-lock.json
 
+## 3.2.2
+
+This release restores backwards compatibility that was broken in v3.2.0.
+
+  - 3a89d8c [Deps] switch from dequal to deep-equal-json
+
+## 3.2.3
+
+  - b14728f Remove deep-equal-json as a dep from the project (#357)
+
+## 3.2.4
+
+  - 93366fa [meta] add `prepack` step so build is not forgotten
+
 ## 4.0.0
 
 This major release requires Node 6+.

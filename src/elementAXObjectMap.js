@@ -56,7 +56,7 @@ function deepAxObjectModelRelationshipConceptAttributeCheck(a?: Array<AXObjectMo
     return false;
   }
 
-  if (a !== undefined && b !== undefined) { 
+  if (a !== undefined && b !== undefined) {
     if (a.length != b.length) {
       return false;
     }
