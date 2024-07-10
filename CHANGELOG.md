@@ -120,3 +120,9 @@ This major release requires Node 6+.
 
   - b9b3e54 Remove the attribute information from the DisclosureTriangle concept
   - 68bd6d2 Add prepublishOnly step to package.json
+
+## 4.1.0
+
+This minor release no longer requires node 6+, and again has zero dependencies.
+
+  - b14728f remove deep-equal-json as a dep from the project (#357)
