@@ -10,6 +10,17 @@
   "plugins": [
     "flowtype"
   ],
+  "ignorePatterns": [
+    "lib/",
+    "node_modules/",
+    "reports/",
+    "node_modules.nosync/",
+    "__tests-built__",
+    "coverage/",
+    ".nyc_output/",
+    "flow-typed/",
+    "flow/",
+  ],
   "overrides": [
     {
       "files": [
