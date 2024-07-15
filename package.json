@@ -47,7 +47,6 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.26.0",
-    "expect": "^29.2.1",
     "flow-bin": "^0.190.1",
     "flow-typed": "^3.8.0",
     "mock-property": "^1.0.3",
