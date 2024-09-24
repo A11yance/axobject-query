@@ -48,7 +48,7 @@
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.30.0",
     "flow-bin": "^0.190.1",
-    "flow-typed": "^3.8.0",
+    "flow-typed": "^4.0.0",
     "mock-property": "^1.1.0",
     "nyc": "^10.3.2",
     "object-inspect": "^1.13.2",
